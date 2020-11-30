@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>{{user.username}}</p>
+<p>{{user.email}}</p>
+<p>Tags:</p>
+{% for t in user.tags.all %}
+<p>{{t.name}}</p>
+{% endfor %}
+<p>Projects</p>
+{% for p in projects %}
+<p>{{p.title}}</p>
+<p>{{p.small_description}}</p>
+<p>{{p.state}}</p>
+{% endfor %}
+
+</body>
+</html>
