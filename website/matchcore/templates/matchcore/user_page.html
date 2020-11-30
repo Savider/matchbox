@@ -11,11 +11,15 @@
 {% for t in user.tags.all %}
 <p>{{t.name}}</p>
 {% endfor %}
-<p>Projects</p>
-{% for p in projects %}
+<p>Current Projects:</p>
+{% for p in current_projects %}
 <p>{{p.title}}</p>
 <p>{{p.small_description}}</p>
-<p>{{p.state}}</p>
+{% endfor %}
+<p>Archived Projects:</p>
+{% for p in archived_projects %}
+<p>{{p.title}}</p>
+<p>{{p.small_description}}</p>
 {% endfor %}
 
 </body>

@@ -16,9 +16,18 @@ def user_page(request, username):
     user = User.objects.get(username=username)
     project_participations = user.project_participations.all()
     projects = [p.project for p in project_participations]
+    current_projects = []
+    archived_projects = []
+    for p in projects:
+        if p.state == 'O':
+            current_projects.append(p)
+        else:
+            archived_projects.append(p)
+
     context = {
         'user': user,
-        'projects': projects,
+        'current_projects': current_projects,
+        'archived_projects': archived_projects,
     }
     return render(request, 'matchcore/user_page.html', context)
 
