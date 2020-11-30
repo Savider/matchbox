@@ -13,11 +13,13 @@
 {% endfor %}
 <p>Current Projects:</p>
 {% for p in current_projects %}
+<p>{{p.id}}</p>
 <p>{{p.title}}</p>
 <p>{{p.small_description}}</p>
 {% endfor %}
 <p>Archived Projects:</p>
 {% for p in archived_projects %}
+<p>{{p.id}}</p>
 <p>{{p.title}}</p>
 <p>{{p.small_description}}</p>
 {% endfor %}
