@@ -9,22 +9,24 @@
 {% load static %}
 
 <p>Name: {{user.username}}</p>
-<img alt="not found" src="{{user.img.url}}"/>
+<img alt="not found" src="{{user.person.img.url}}"/>
 <p>Email: {{user.email}}</p>
-<p>Phone Number: {{user.phone}}</p>
-<p>Discord: {{user.discord}}</p>
+<p>Phone Number: {{user.person.phone}}</p>
+<p>Discord: {{user.person.discord}}</p>
 
 <p>Tags:</p>
-{% for t in user.tags.all %}
+{% for t in user.person.tags.all %}
 <p>{{t.name}}</p>
 <img alt="not found" src="{{t.img.url}}"/>
 {% endfor %}
+
 <p>Current Projects:</p>
 {% for p in current_projects %}
 <p>{{p.id}}</p>
 <p>{{p.title}}</p>
 <p>{{p.small_description}}</p>
 {% endfor %}
+
 <p>Archived Projects:</p>
 {% for p in archived_projects %}
 <p>{{p.id}}</p>
