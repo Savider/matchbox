@@ -11,7 +11,6 @@ class ProjectTag(models.Model):
     ]
 
     name = models.CharField(max_length=10)
-    img = models.CharField(max_length=100)  # Path
     archetype = models.CharField(max_length=1, choices=ARCHETYPE, default='C')
 
     def __str__(self):
@@ -20,7 +19,8 @@ class ProjectTag(models.Model):
 
 class UserTag(models.Model):
     name = models.CharField(max_length=10)
-    img = models.CharField(max_length=100)  # Path
+    # img = models.CharField(max_length=100)  # Path
+    img = models.ImageField(upload_to='images/tags')
 
     def __str__(self):
         return self.name
@@ -29,6 +29,10 @@ class UserTag(models.Model):
 class User(AbstractBaseUser):
     username = models.CharField(max_length=16, unique=True)
     email = models.EmailField(unique=True)
+    img = models.ImageField(upload_to='images/users', default='')
+    phone = models.CharField(max_length=10, default='0')
+    discord = models.CharField(max_length=30, default='None')
+
     tags = models.ManyToManyField(UserTag)
 
     USERNAME_FIELD = 'username'
@@ -72,6 +76,3 @@ class Notification(models.Model):
     receiver = models.ForeignKey(User, related_name='received_notifications', on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     type = models.CharField(max_length=2, choices=TYPE)
-
-
-

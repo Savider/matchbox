@@ -5,11 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-<p>{{user.username}}</p>
-<p>{{user.email}}</p>
+
+{% load static %}
+
+<p>Name: {{user.username}}</p>
+<img alt="not found" src="{{user.img.url}}"/>
+<p>Email: {{user.email}}</p>
+<p>Phone Number: {{user.phone}}</p>
+<p>Discord: {{user.discord}}</p>
+
 <p>Tags:</p>
 {% for t in user.tags.all %}
 <p>{{t.name}}</p>
+<img alt="not found" src="{{t.img.url}}"/>
 {% endfor %}
 <p>Current Projects:</p>
 {% for p in current_projects %}
