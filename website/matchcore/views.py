@@ -65,8 +65,8 @@ def register(request):
                 return redirect(user_page, username=username)
             except:
                 return redirect(login_page)
-        #else:
-            #  redirect(register_page)
+        else:
+            redirect(register_page)
     else:
         return redirect(register_page)
 
