@@ -1,0 +1,23 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:900,700,400,300,100);
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900');
+
+body {
+	font-family: 'Lato', sans-serif;
+	color: theme-color("text");
+}
+
+h1 {
+	color: theme-color("primary");
+	font-size: 41px;
+	letter-spacing: 0.5px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+h2 {
+	color: theme-color("text");
+	font-size: 27px;
+	font-weight: bold;
+	line-height: 40px;
+	line-spacing: 0.1px;
+}

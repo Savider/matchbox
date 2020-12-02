@@ -1,0 +1,132 @@
+.user-info {
+	height: calc(100vh - 107px); // god i hate css
+
+	.user-main-info {
+		padding: 0px 100px 50px;
+
+		.user-picture-container {
+			width: 68%;
+			margin-bottom: 5px;
+			position:relative;
+		    display:inline-block;
+		    text-align:center;
+
+			.user-picture {
+				padding: 5px;
+				object-fit: cover;
+	  			object-position: center;
+				border-radius: 50%;
+			}
+			.edit-button {
+				position:absolute;
+			    left:0px;
+			    top:0px;
+			    width:60px;
+			    height:60px;
+			    border-radius: 50%;
+
+			    img {
+			    	height: 33px;
+			    }
+			}
+		}
+	}
+	.user-stats {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+
+		.stats-item {
+			display: flex;
+			flex-direction: row;
+
+			.stats-circle {
+				height: 60px;
+				width: 60px;
+				border-radius: 50%;
+				background-color: theme-color("text");
+				font-size: 21px;
+				font-weight: bold;
+				letter-spacing: 0.2px;
+				color: #000;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-right: 20px;
+			}
+			.stats-desc {
+				font-size: 30px;
+				font-weight: 300;
+				color: theme-color("secondarylight");
+				letter-spacing: 0.2px;
+				text-transform: uppercase;
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+	.user-contact {
+		padding: 0px 40px 100px;
+		font-size: 21px;
+		font-weight: 300;
+
+		.contact-header {
+			display: block;
+			font-weight: bold;
+		}
+	}
+}
+
+.project-list {
+	padding: 10px 40px;
+
+	.project-item {
+		padding: 50px 45px;
+		
+		.project-title {
+			font-family: 'Mulish', 'Lato', sans-serif;
+			font-size: 17px;
+			font-weight: bold;
+			display: block;
+			color: theme-color("secondarylight");
+		}
+		.project-short-desc {
+			font-family: 'Mulish', 'Lato', sans-serif;
+			font-size: 13px;
+			line-height: 20px;
+		}
+		.project-tags {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding-bottom: 16px;
+
+			.tags-item {
+				display: flex;
+				flex-direction: row;
+
+				.tags-circle {
+					height: 40px;
+					width: 40px;
+					border-radius: 50%;
+					background-color: theme-color("text");
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-right: 20px;
+				}
+				.tags-desc {
+					font-size: 15px;
+					font-weight: 300;
+					line-height: 1.2;
+
+					.tags-name {
+						font-weight: bold;
+						text-transform: uppercase;
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

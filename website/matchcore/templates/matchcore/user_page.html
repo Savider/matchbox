@@ -1,38 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
+{% extends "matchcore/layout_nav.html" %}
 {% load static %}
 
-<p>Name: {{user.username}}</p>
-<img alt="not found" src="{{user.person.img.url}}"/>
-<p>Email: {{user.email}}</p>
-<p>Phone Number: {{user.person.phone}}</p>
-<p>Discord: {{user.person.discord}}</p>
+{% block main %}
+<div class="container user-info">
+	<!-- User info -->
+	<div class="h-100 d-flex flex-column justify-content-center">
+		<div class="row user-main-info">
+			<div class="col-5 text-center">
+				<div class="user-picture-container embed-responsive embed-responsive-1by1">
+					<img class="user-picture embed-responsive-item" src="{{user.person.img.url}}">
+					<button class="edit-button btn btn-primary">
+						<img src="{% static 'matchcore/images/settings.svg' %}">
+					</button>
+				</div>
+				<h1>{{user.username}}</h1>
+			</div>
+			<div class="col user-stats ml-2">
+				<div class="stats-item">
+					<div class="stats-circle">{{current_projects|length}}</div>
+					<div class="stats-desc">Current projects</div>
+				</div>
+				<div class="stats-item">
+					<div class="stats-circle">{{archived_projects|length}}</div>
+					<div class="stats-desc">Archived projects</div>
+				</div>
+				<div class="stats-item">
+					<div class="stats-circle">oi</div>
+					<div class="stats-desc">User rating</div>
+				</div>
+			</div>
+		</div>
+		<div class="row user-contact text-center">
+			<div class="col"><span class="contact-header">Email</span>{{user.email}}</div>
+			<div class="col"><span class="contact-header">Nationality</span>Nationality</div>
+			<div class="col"><span class="contact-header">Phone Number</span>{{user.person.phone}}</div>
+			<div class="col"><span class="contact-header">Discord</span>{{user.person.discord}}</div>
+		</div>
+	</div>
+</div>
 
-<p>Tags:</p>
-{% for t in user.person.tags.all %}
-<p>{{t.name}}</p>
-<img alt="not found" src="{{t.img.url}}"/>
-{% endfor %}
+<!-- Current projects -->
+<div class="container mt-5 mb-5">
+	<h1>Current projects</h1>
+	<div class="row project-list">
+		{% for p in current_projects %}
+			<div class="col-6 project-item">
+				<div class="row">
+					<div class="col-7 text-center">
+						<img class="project-picture img-fluid" src="{% static 'matchcore/images/projects/placeholder.svg' %}">
+						<div class="mt-4 px-2">
+							<span class="project-title mb-1">{{p.title}}</span>
+							<p class="project-short-desc">{{p.small_description}}</p>
+						</div>
+					</div>
+					<div class="col project-tags">
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-complexity.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Complexity</span>Placeholder</div>
+						</div>
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-theme.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Theme</span>Placeholder</div>
+						</div>
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-role.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Role</span>Placeholder</div>
+						</div>
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-technology.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Technology</span>Placeholder</div>
+						</div>
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-language.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Language</span>Placeholder</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
 
-<p>Current Projects:</p>
-{% for p in current_projects %}
-<p>{{p.id}}</p>
-<p>{{p.title}}</p>
-<p>{{p.small_description}}</p>
-{% endfor %}
+<!-- Archived projects -->
+<div class="container mt-5">
+	<h1>Archived projects</h1>
+	<div class="row project-list">
+		<!-- Project item 1 -->
+		{% for p in archived_projects %}
+			<div class="col-6 project-item">
+				<div class="row">
+					<div class="col-7 text-center">
+						<img class="project-picture img-fluid" src="{% static 'matchcore/images/projects/placeholder.svg' %}">
+						<div class="mt-4 px-2">
+							<span class="project-title mb-1">Escape the Lab</span>
+							<p class="project-short-desc">A game where you try to find your way out of a crazy scientist lab.</p>
+						</div>
+					</div>
+					<div class="col project-tags">
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-complexity.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Complexity</span>Moderate</div>
+						</div>
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-theme.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Theme</span>Games</div>
+						</div>
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-role.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Role</span>Programmer</div>
+						</div>
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-technology.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Technology</span>Unity</div>
+						</div>
+						<div class="tags-item">
+							<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-language.svg' %}"></div>
+							<div class="tags-desc"><span class="tags-name">Language</span>English</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
 
-<p>Archived Projects:</p>
-{% for p in archived_projects %}
-<p>{{p.id}}</p>
-<p>{{p.title}}</p>
-<p>{{p.small_description}}</p>
-{% endfor %}
-
-</body>
-</html>
+{% endblock %}

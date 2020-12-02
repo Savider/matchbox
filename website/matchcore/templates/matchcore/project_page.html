@@ -1,12 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Project Page</title>
-</head>
-<body>
-<p>{{current_project.title}}</p>
-<p>{{current_project.small_description}}</p>
-<p>{{current_project.big_description}}</p>
-</body>
-</html>
+{% extends "matchcore/layout_empty.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container project-view">
+	<div class="h-100 d-flex flex-column justify-content-center">
+		<div class="row mb-3">
+			<div class="col px-0">
+				<h1>{{current_project.title}}</h1>
+			</div>
+			<div class="col text-right px-0">
+				<span class="align-middle tiled-button-text">Tiled view</span>
+				<button class="tiled-button btn btn-primary">
+					<img src="{% static 'matchcore/images/tiled.svg' %}">
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 mr-4 embed-responsive embed-responsive-1by1"> <!-- not so responsive tbh -->
+				<img class="project-picture embed-responsive-item" src="{% static 'matchcore/images/projects/placeholder_ppage.svg' %}">
+			</div>
+			<div class="col project-info ml-4">
+				<div class="row"><h2>Description</h2></div>
+				<div class="row project-long-desc pr-3 mb-5">
+					<p>{{current_project.big_description}}</p>
+				</div>
+				<div class="row project-tags">
+					<div class="tags-item">
+						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-complexity.svg' %}"></div>
+						<div class="tags-desc"><span class="tags-name">Complexity</span>Placeholder</div>
+					</div>
+					<div class="tags-item">
+						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-theme.svg' %}"></div>
+						<div class="tags-desc"><span class="tags-name">Theme</span>Placeholder</div>
+					</div>
+					<div class="tags-item">
+						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-role.svg' %}"></div>
+						<div class="tags-desc"><span class="tags-name">Role</span>Placeholder</div>
+					</div>
+					<div class="tags-item">
+						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-technology.svg' %}"></div>
+						<div class="tags-desc"><span class="tags-name">Technology</span>Placeholder</div>
+					</div>
+					<div class="tags-item">
+						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-language.svg' %}"></div>
+						<div class="tags-desc"><span class="tags-name">Language</span>Placeholder</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row project-score">
+			<div class="score-item">
+				<div class="score-circle">N/A</div>
+				<div class="score-desc">Project score</div>
+			</div>
+			<div class="score-item">
+				<div class="score-circle">N/A</div>
+				<div class="score-desc">Your contribution</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

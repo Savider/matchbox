@@ -1,0 +1,76 @@
+$navbar-mbox-color:                theme-color("secondarydark");
+$navbar-mbox-hover-color:          theme-color("secondarydark"); // to do: change hover and svg hover
+$navbar-mbox-active-color:         theme-color("primary");
+$navbar-mbox-disabled-color:       theme-color("secondarydark");
+$navbar-mbox-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-mbox-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$navbar-mbox-toggler-border-color: theme-color("secondarydark");
+
+$navbar-mbox-brand-color:                $navbar-mbox-active-color;
+$navbar-mbox-brand-hover-color:          $navbar-mbox-active-color;
+
+.navbar-mbox {
+	font-size: 14px;
+	letter-spacing: 0.22px;
+
+	.navbar-brand {
+		color: $navbar-mbox-brand-color;
+		font-weight: bold;
+		font-size: 24px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+
+		@include hover-focus() {
+			color: $navbar-mbox-brand-hover-color;
+    }
+  }
+
+	.navbar-nav {
+		.nav-link {
+	    	color: $navbar-mbox-color;
+
+	    	@include hover-focus() {
+	        	color: $navbar-mbox-hover-color;
+	      	}
+
+	    	&.disabled {
+	        	color: $navbar-mbox-disabled-color;
+	      	}
+	      	.nav-icon {
+	      		width: 30px;	// fixme
+	      		height: 30px;
+	      		path {
+	    			fill: $navbar-mbox-color;
+	    		}
+	    	}
+	    }
+	    .show > .nav-link,
+	    .active > .nav-link,
+	    .nav-link.show,
+	    .nav-link.active {
+	    	color: $navbar-mbox-active-color;
+	    	path {
+	    		fill: $navbar-mbox-active-color;
+	    	}
+	    }
+  }
+
+	.navbar-toggler {
+	    color: $navbar-mbox-color;
+	    border-color: $navbar-mbox-toggler-border-color;
+  }
+
+	.navbar-toggler-icon {
+    	background-image: escape-svg($navbar-mbox-toggler-icon-bg);
+  }
+
+  	.navbar-text {
+	    color: $navbar-mbox-color;
+	    a {
+	    	color: $navbar-mbox-active-color;
+
+	    	@include hover-focus() {
+	    		color: $navbar-mbox-active-color;
+	    	}
+	    }
+  	}
+}

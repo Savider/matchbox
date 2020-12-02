@@ -1,0 +1,26 @@
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+$hotpink: #D33F49;
+$darkpurple: #221122;
+$lighterrandomgray: #F2F2F2;
+$darkerrandomgray: #E7E7E7;
+
+$theme-colors: (
+	"text": $white,
+	"primary": $hotpink,
+	"secondarylight": $lighterrandomgray,
+	"secondarydark": $darkerrandomgray,
+	"bg": $darkpurple
+);
+
+$body-bg: $darkpurple;
+
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+@import "bootstrap/bootstrap";

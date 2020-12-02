@@ -1,0 +1,119 @@
+@media (min-width: 1200px) {
+    .container.project-view {
+        max-width: 1200px;
+    }
+}
+.project-view {
+	height: 100vh;
+
+	.tiled-button-text {
+		font-weight: 300;
+	}
+	.tiled-button {
+		width:45px;
+	    height:45px;
+	    border-radius: 50%;
+
+	    img {
+	    	height: 20px;
+	    	vertical-align: middle;
+	    }
+	}
+	.project-picture {
+		width: 400px;	// i've done had enough of this
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 20px;
+	}
+	.project-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		.project-long-desc {
+			overflow-y: auto;
+			height: 170px;
+			font-size: 14px;
+			letter-spacing: 0.3px;
+			line-height: 22px;
+			text-align: justify;
+		}
+		.project-tags {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+			.tags-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				.tags-circle {
+					height: 85px;
+					width: 85px;
+					border-radius: 50%;
+					background-color: theme-color("text");
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-bottom: 10px;
+
+					img {
+						width: 48px;
+						height: 48px;
+					}
+				}
+				.tags-desc {
+					text-align: center;
+					font-size: 14px;
+					font-weight: 300;
+					line-height: 1.3;
+
+					.tags-name {
+						font-weight: bold;
+						text-transform: uppercase;
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	.project-score {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-top: 50px;
+
+		.score-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-right: 40px;
+			margin-left: 40px;
+			width: 85px;
+
+			.score-circle {
+				height: 85px;
+				width: 85px;
+				border-radius: 50%;
+				background-color: theme-color("text");
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 10px;
+				color: theme-color("primary");
+				font-size: 28px;
+			}
+			.score-desc {
+				text-align: center;
+				font-size: 14px;
+				font-weight: bold;
+				text-transform: uppercase;
+				line-height: 1.3;
+			}
+		}
+	}
+}
