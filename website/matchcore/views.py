@@ -11,8 +11,7 @@ def landing_page(request):
     return render(request, 'matchcore/project_page.html', context)
 
 
-def login_page(request):
-    # if this is a POST request we need to process the form data
+def do_login(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = LoginForm(request.POST)
@@ -29,11 +28,47 @@ def login_page(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = LoginForm()
-        context = {
-            'form': form,
-        }
-        return render(request, 'matchcore/login_page.html', context)
+        return redirect(login_page)
+
+
+def login_page(request):
+    form = LoginForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'matchcore/login_page.html', context)
+
+
+def register_page(request):
+    form = RegisterForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'matchcore/register_page.html', context)
+
+
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            email = form.cleaned_data['email']
+            img = form.cleaned_data['img']
+            phone = form.cleaned_data['phone']
+            discord = form.cleaned_data['discord']
+
+            try:
+                user = User.objects.create_user(username, email, password)
+                person = Person.objects.create(user=user, img=img, phone=phone, discord=discord)
+                login(request, user)
+                return redirect(user_page, username=username)
+            except:
+                return redirect(login_page)
+        #else:
+            #  redirect(register_page)
+    else:
+        return redirect(register_page)
 
 
 def project_page(request, project_id):
@@ -64,7 +99,16 @@ def user_page(request, username):
     return render(request, 'matchcore/user_page.html', context)
 
 
-def project(request):
-    project_list = Project.objects.all()
-    output = ', '.join([p.id.__str__() for p in project_list])
-    return HttpResponse(output)
+def notifications_page(request):
+    if request.user.is_authenticated:
+        # Show his notifications
+        user = request.user
+        notifications_received = user.person.received_notifications.all()
+
+        context = {
+            'notifications_received': notifications_received
+        }
+        return render(request, 'matchcore/notifications_page.html', context)
+
+    else:
+        return redirect(login_page)

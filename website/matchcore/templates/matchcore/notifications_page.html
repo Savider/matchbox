@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for n in notifications_received %}
+<p>{{n.type}}</p>
+<p>{{n.project.title}}</p>
+<p>{{n.sender.user.username}}</p>
+{% endfor %}
+</body>
+</html>

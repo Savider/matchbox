@@ -7,9 +7,16 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.login_page),
-    path('project/', views.project),
+    path('login/submit', views.do_login),
+
+    path('register', views.register_page),
+    path('register/submit', views.register),
+
     path('project/<int:project_id>/', views.project_page),
+
     path('user/<str:username>/', views.user_page),
+
+    path('notifications/', views.notifications_page),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
