@@ -25,4 +25,10 @@ $body-bg: $darkpurple;
     box-shadow: none !important;
 }
 
+$modal-content-bg: $darkpurple;
+
+.modal-footer {
+	border-top: none !important;
+}
+
 @import "bootstrap/bootstrap";

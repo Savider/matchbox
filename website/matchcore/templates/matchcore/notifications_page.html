@@ -1,4 +1,65 @@
-<!DOCTYPE html>
+{% extends "matchcore/layout_nav.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container">
+	<h1 class="mt-5">Unread messages</h1>
+	<div class="message-list">
+		<!-- Message -->
+		{% for n in unread_notifications %}
+			<div class="row unread-message">
+				{% if n.type == 'RS' %}
+					<div class="col-8">
+						<strong>{{n.sender.user.username}}</strong> {%if n.accepted%}accepted {%else%}rejected {%endif%} your request to join the project <strong>{{n.project.title}}</strong>
+					</div>
+					<div class="col message-buttons">
+						<button class="message-button btn btn-text"><img class="prj" src="{% static 'matchcore/images/project.svg' %}"></button>
+						<div class="message-button-desc">Check project</div>
+					</div>
+				{% else %}
+					<div class="col-8">
+						<strong>{{n.sender.user.username}}</strong> wants to join your project <strong>{{n.project.title}}</strong>
+					</div>
+					<div class="col message-buttons">
+						<button class="message-button btn btn-text"><img class="prf" src="{% static 'matchcore/images/profile.svg' %}"></button>
+						<button class="message-button btn btn-text"><img class="accrj" src="{% static 'matchcore/images/accept.svg' %}"></button>
+						<button class="message-button btn btn-text"><img class="accrj" src="{% static 'matchcore/images/reject.svg' %}"></button>
+					</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+
+	<h1 class="mt-5">Read messages</h1>
+	<div class="message-list">
+		<!-- Message -->
+		{% for n in read_notifications %}
+		<div class="row read-message">
+			{% if n.type == 'RS' %}
+				<div class="col-8">
+					<strong>{{n.sender.user.username}}</strong> {%if n.accepted%}accepted {%else%}rejected {%endif%} your request to join the project <strong>{{n.project.title}}</strong>
+				</div>
+				<div class="col message-buttons">
+					<button class="message-button btn btn-primary"><img class="prj" src="{% static 'matchcore/images/project_white.svg' %}"></button>
+					<div class="message-button-desc">Check project</div>
+				</div>
+			{% else %}
+			<div class="col-8">
+				You <strong>{%if n.accepted%}accepted {%else%}rejected {%endif%}</strong> the request of <strong>{{n.sender.user.username}}</strong> to join your project <strong>{{n.project.title}}</strong>
+			</div>
+			<div class="col message-buttons">
+				<!-- none? -->
+			</div>
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,4 +79,4 @@
 <p>{{n.sender.user.username}}</p>
 {% endfor %}
 </body>
-</html>
+</html> -->
