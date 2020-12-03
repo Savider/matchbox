@@ -72,11 +72,34 @@ def register(request):
 
 
 def project_page(request, project_id):
-    current_project = Project.objects.get(id=project_id)
-    context = {
-        'current_project': current_project,
-    }
-    return render(request, 'matchcore/project_page.html', context)
+    if request.user.is_authenticated:
+        is_participant = False
+        is_owner = False
+        request_sent = False
+
+        current_project = Project.objects.get(id=project_id)
+        user = request.user
+        project_participation = user.person.project_participations.filter(project__id=project_id).first()
+        notif = Notification.objects.filter(sender=user.person, project=current_project, type="JR").first()
+
+        if project_participation is not None:
+            # is in this project
+            is_participant = True
+            if project_participation.owner:
+                is_owner = True
+            pass
+        elif notif is not None:
+            request_sent = True
+
+        context = {
+            'current_project': current_project,
+            'request_sent': request_sent,
+            'is_owner': is_owner,
+            'is_participant': is_participant,
+        }
+        return render(request, 'matchcore/project_page.html', context)
+    else:
+        return redirect(login_page)
 
 
 def user_page(request, username):
@@ -150,6 +173,23 @@ def find_page(request):
     }
 
     return render(request, 'matchcore/find_page.html', context)
+
+
+def request_join(request, proj_id):
+
+    notif = Notification.objects.filter(type="JR").filter(project__id=proj_id)
+    if notif.count() > 0:
+        # Already requested, do nothing
+        return redirect(project_page, project_id=proj_id)
+
+    user = request.user
+    project = Project.objects.get(proj_id)
+    owner = project.participants.filter(owner=True)
+    notif = Notification(sender=user.person, receiver=owner, project=project, type="JR")
+    notif.save()
+
+    return redirect(project_page, project_id=proj_id)
+
 
 
 def bzz(request):
