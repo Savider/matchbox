@@ -112,3 +112,30 @@ def notifications_page(request):
 
     else:
         return redirect(login_page)
+
+
+def filter_page(request):
+    tags = ProjectTag.objects.all()
+    context = {
+        'tags': tags,
+    }
+    return render(request, 'matchcore/filter_page.html', context)
+
+
+def find_page(request):
+
+    # unfiltered page
+    projects = Project.objects.filter(state='O')
+    context = {
+         'projects': projects,
+    }
+    if request.method == 'POST':
+        tags = request.POST.keys()
+        selected_tags = []
+        for t in tags:
+            if request.POST[t]:
+                selected_tags.append(t)
+        for p in projects:
+            return
+
+    return render(request, 'matchcore/find_page.html', context)

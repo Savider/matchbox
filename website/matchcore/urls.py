@@ -12,11 +12,15 @@ urlpatterns = [
     path('register', views.register_page),
     path('register/submit', views.register),
 
-    path('project/<int:project_id>/', views.project_page),
+    path('project/<int:project_id>', views.project_page),
 
-    path('user/<str:username>/', views.user_page),
+    path('user/<str:username>', views.user_page),
 
-    path('notifications/', views.notifications_page),
+    path('notifications', views.notifications_page),
+
+    path('filter', views.filter_page),
+
+    path('find', views.find_page),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/find">
+    {% for t in tags %}
+    <label for={{t.name}}>{{t.name}}:</label><br>
+    <input type="checkbox" id={{t.name}} name={{t.name}}><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
