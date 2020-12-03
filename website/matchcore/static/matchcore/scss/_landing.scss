@@ -1,0 +1,44 @@
+.landing-page {
+	height: 100vh;
+
+	img {
+		width: 80%;
+	}
+	.btn {
+		width: 200px;
+		border-radius: 40px;
+		font-weight: bold;
+		font-size: 20px;
+		margin: 0px 20px;
+	}
+}
+
+.modal-dialog {
+	max-width: 350px;
+}
+
+#loginModal {
+	.login-label {
+		font-weight: 300;
+		font-size: 20px;
+		display: block;
+	}
+	.form-control {
+		margin-bottom: 10px;
+		margin-top: 5px;
+	}
+	.btn {
+		border-radius: 40px;
+		font-weight: bold;
+		font-size: 18px;
+	}
+	.modal-body:after {
+		content: "";
+		background: theme-color("primary");
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 50%;
+		width: 1px;
+	}
+}

@@ -4,7 +4,11 @@ from django.forms import PasswordInput
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', max_length=20)
-    password = forms.CharField(label='Password', widget=PasswordInput())
+    password = forms.CharField(label='Password')
+    #widgets
+    username.widget = forms.TextInput(attrs={'class': 'form-control'})
+    password.widget = forms.PasswordInput(attrs={'class': 'form-control'})
+
 
 
 class RegisterForm(forms.Form):

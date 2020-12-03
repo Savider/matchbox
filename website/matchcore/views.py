@@ -153,4 +153,8 @@ def find_page(request):
 
 
 def bzz(request):
-    return render(request, 'matchcore/bzz.html')
+    form = LoginForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'matchcore/landing_page.html', context)

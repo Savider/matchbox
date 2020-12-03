@@ -7,6 +7,10 @@
   box-shadow: none !important;
 }
 
+.modal-footer {
+  border-top: none !important;
+}
+
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -5985,7 +5989,7 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #fff;
+  background-color: #221122;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
@@ -10711,6 +10715,48 @@ h3 {
 }
 .navbar-mbox .navbar-text a:hover, .navbar-mbox .navbar-text a:focus {
   color: #D33F49;
+}
+
+.landing-page {
+  height: 100vh;
+}
+.landing-page img {
+  width: 80%;
+}
+.landing-page .btn {
+  width: 200px;
+  border-radius: 40px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px 20px;
+}
+
+.modal-dialog {
+  max-width: 350px;
+}
+
+#loginModal .login-label {
+  font-weight: 300;
+  font-size: 20px;
+  display: block;
+}
+#loginModal .form-control {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+#loginModal .btn {
+  border-radius: 40px;
+  font-weight: bold;
+  font-size: 18px;
+}
+#loginModal .modal-body:after {
+  content: "";
+  background: #D33F49;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  width: 1px;
 }
 
 .user-info {
