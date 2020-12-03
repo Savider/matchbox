@@ -175,21 +175,20 @@ def find_page(request):
     return render(request, 'matchcore/find_page.html', context)
 
 
-def request_join(request, proj_id):
+def request_join(request, project_id):
 
-    notif = Notification.objects.filter(type="JR").filter(project__id=proj_id)
+    notif = Notification.objects.filter(type="JR").filter(project__id=project_id)
     if notif.count() > 0:
         # Already requested, do nothing
-        return redirect(project_page, project_id=proj_id)
+        return redirect(project_page, project_id=project_id)
 
     user = request.user
-    project = Project.objects.get(proj_id)
+    project = Project.objects.get(project_id)
     owner = project.participants.filter(owner=True)
     notif = Notification(sender=user.person, receiver=owner, project=project, type="JR")
     notif.save()
 
-    return redirect(project_page, project_id=proj_id)
-
+    return redirect(project_page, project_id=project_id)
 
 
 def bzz(request):
