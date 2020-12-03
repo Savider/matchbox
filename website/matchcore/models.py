@@ -28,6 +28,7 @@ class UserTag(models.Model):
 class Person(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     img = models.ImageField(upload_to='images/users', default='')
+    nationality = models.CharField(max_length=20, default='Unknown')
     phone = models.CharField(max_length=10, default='None')
     discord = models.CharField(max_length=30, default='None')
 
@@ -72,3 +73,5 @@ class Notification(models.Model):
     receiver = models.ForeignKey(Person, related_name='received_notifications', on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     type = models.CharField(max_length=2, choices=TYPE)
+    read = models.BooleanField(default=False)
+    accepted = models.BooleanField(default=False)

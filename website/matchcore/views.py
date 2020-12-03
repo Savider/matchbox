@@ -104,9 +104,16 @@ def notifications_page(request):
         # Show his notifications
         user = request.user
         notifications_received = user.person.received_notifications.all()
+        read_notifications = notifications_received.filter(read=True)
+        unread_notifications = notifications_received.filter(read=False)
+        read_notifications = list(read_notifications)
+        unread_notifications = list(unread_notifications)
+
+        notifications_received.update(read=True)
 
         context = {
-            'notifications_received': notifications_received
+            'read_notifications': read_notifications,
+            'unread_notifications': unread_notifications,
         }
         return render(request, 'matchcore/notifications_page.html', context)
 
