@@ -10831,9 +10831,10 @@ h2 {
   font-weight: 700;
 }
 .message-list .read-message .message-buttons, .message-list .unread-message .message-buttons {
+  padding: 0px 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .message-list .read-message .message-buttons .message-button, .message-list .unread-message .message-buttons .message-button {
@@ -10855,6 +10856,16 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.message-list .read-message .message-buttons .message-button img.prj, .message-list .unread-message .message-buttons .message-button img.prj {
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.message-list .read-message .message-buttons .message-button-desc, .message-list .unread-message .message-buttons .message-button-desc {
+  text-transform: uppercase;
 }
 
 .message-list {
