@@ -5,7 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-{% for n in notifications_received %}
+<p>Unread Notifications:</p>
+{% for n in unread_notifications %}
+<p>{{n.type}}</p>
+<p>{{n.project.title}}</p>
+<p>{{n.sender.user.username}}</p>
+{% endfor %}
+<p>Read Notifications:</p>
+{% for n in read_notifications %}
 <p>{{n.type}}</p>
 <p>{{n.project.title}}</p>
 <p>{{n.sender.user.username}}</p>
