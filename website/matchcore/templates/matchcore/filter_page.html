@@ -1,4 +1,112 @@
-<!DOCTYPE html>
+{% extends "matchcore/layout_empty.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container filter-list-page">
+	<div class="h-100 d-flex flex-column justify-content-center">
+		<div class="row justify-content-center mb-5">
+			<h3>Filter settings</h3>
+		</div>
+		<div class="row">
+			<div class="col mx-1">
+				<div class="text-center mb-3">
+					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/complexity.svg' %}"></button>
+					<span class="tag-name">Complexity</span>
+				</div>
+				<!-- List -->
+				<div class="tag-list scrollable">
+					<div class="tag-list-item">Easy</div>
+					<div class="tag-list-item">Moderate</div>
+				</div>
+			</div>
+			<div class="col mx-1">
+				<div class="text-center mb-3">
+					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/theme.svg' %}"></button>
+					<span class="tag-name">Theme</span>
+				</div>
+				<!-- List -->
+				<div class="tag-list scrollable">
+					<div class="tag-list-item">Games</div>
+					<div class="tag-list-item">Web Design</div>
+					<div class="tag-list-item">UX/UI</div>
+					<div class="tag-list-item">Games</div>
+					<div class="tag-list-item">Web Design</div>
+					<div class="tag-list-item">UX/UI</div>
+					<div class="tag-list-item">Games</div>
+					<div class="tag-list-item">Web Design</div>
+					<div class="tag-list-item">UX/UI</div>
+				</div>
+			</div>
+			<div class="col mx-1">
+				<div class="text-center mb-3">
+					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/technology.svg' %}"></button>
+					<span class="tag-name">Technology</span>
+				</div>
+				<!-- List -->
+				<div class="tag-list scrollable">
+					<div class="tag-list-item">Programmer</div>
+					<div class="tag-list-item">Back-End Developer</div>
+					<div class="tag-list-item">Front-End Developer</div>
+				</div>
+			</div>
+			<div class="col mx-1">
+				<div class="text-center mb-3">
+					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/role.svg' %}"></button>
+					<span class="tag-name">Role</span>
+				</div>
+				<!-- List -->
+				<div class="tag-list scrollable">
+					<div class="tag-list-item">C/C++</div>
+					<div class="tag-list-item">Flutter</div>
+					<div class="tag-list-item">Java</div>
+					<div class="tag-list-item">Python</div>
+					<div class="tag-list-item">C/C++</div>
+					<div class="tag-list-item">Flutter</div>
+					<div class="tag-list-item">Java</div>
+					<div class="tag-list-item">Python</div>
+					<div class="tag-list-item">C/C++</div>
+					<div class="tag-list-item">Flutter</div>
+					<div class="tag-list-item">Java</div>
+					<div class="tag-list-item">Python</div>
+				</div>
+			</div>
+			<div class="col mx-1">
+				<div class="text-center mb-3">
+					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/language.svg' %}"></button>
+					<span class="tag-name">Language</span>
+				</div>
+				<!-- List -->
+				<div class="tag-list scrollable">
+					<div class="tag-list-item">English</div>
+					<div class="tag-list-item">Portuguese</div>
+					<div class="tag-list-item">Chinese</div>
+					<div class="tag-list-item">Japanese</div>
+					<div class="tag-list-item">Korean</div>
+					<div class="tag-list-item">German</div>
+					<div class="tag-list-item">French</div>
+					<div class="tag-list-item">English</div>
+					<div class="tag-list-item">Portuguese</div>
+					<div class="tag-list-item">Chinese</div>
+					<div class="tag-list-item">Japanese</div>
+					<div class="tag-list-item">Korean</div>
+					<div class="tag-list-item">German</div>
+					<div class="tag-list-item">French</div>
+				</div>
+			</div>
+		</div>
+		<div class="row text-center justify-content-center mt-5">
+			<div class="col">
+				<button class="save-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/save.svg' %}"></button>
+				<span class="save-button-text d-block">Save</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,4 +121,4 @@
     <input type="submit" value="Submit">
 </form>
 </body>
-</html>
+</html> -->
