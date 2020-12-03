@@ -17,6 +17,9 @@ urlpatterns = [
     path('user/<str:username>/', views.user_page),
 
     path('notifications/', views.notifications_page),
+
+
+    path('bzz/', views.bzz)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

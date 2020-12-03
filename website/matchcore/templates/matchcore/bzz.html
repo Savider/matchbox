@@ -1,0 +1,51 @@
+{% extends "matchcore/layout_nav.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container">
+	<h1 class="mt-5">Unread messages</h1>
+	<div class="message-list">
+		<!-- Message -->
+		<div class="row unread-message">
+			<div class="col-8">
+				<strong>Username #1</strong> wants to join your project <strong>TITLE OF THE PROJECT #1</strong> as a <strong>Programmer</strong>
+			</div>
+			<div class="col message-buttons">
+				<button class="message-button btn btn-text"><img class="prf" src="{% static 'matchcore/images/profile.svg' %}"></button>
+				<button class="message-button btn btn-text"><img class="accrj" src="{% static 'matchcore/images/accept.svg' %}"></button>
+				<button class="message-button btn btn-text"><img class="accrj" src="{% static 'matchcore/images/reject.svg' %}"></button>
+			</div>
+		</div>
+		<!-- Message -->
+		<div class="row unread-message">
+			<div class="col-8">
+				<strong>Username #2</strong> accepted your request to join the project <strong>TITLE OF THE PROJECT #2</strong> as a <strong>Front-End Developer</strong>
+			</div>
+			<div class="col message-buttons">
+			</div>
+		</div>
+	</div>
+
+	<h1 class="mt-5">Read messages</h1>
+	<div class="message-list">
+		<!-- Message -->
+		<div class="row read-message">
+			<div class="col-8">
+				You accepted the request of <strong>Username #4</strong> to join your project <strong>TITLE OF THE PROJECT #3</strong> as a Programmer
+			</div>
+			<div class="col message-buttons">
+			</div>
+		</div>
+		<!-- Message -->
+		<div class="row read-message">
+			<div class="col-8">
+				<strong>Username #2</strong> accepted your request to join the project <strong>TITLE OF THE PROJECT #2</strong> as a <strong>Front-End Developer</strong>
+			</div>
+			<div class="col message-buttons">
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

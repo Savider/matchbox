@@ -112,3 +112,7 @@ def notifications_page(request):
 
     else:
         return redirect(login_page)
+
+
+def bzz(request):
+    return render(request, 'matchcore/bzz.html')

@@ -10780,4 +10780,94 @@ h2 {
   line-height: 1.3;
 }
 
+.filter-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.filter-button img {
+  height: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.filter-button-text {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.create-button {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+.create-button img {
+  height: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.create-button-text {
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.message-list .read-message, .message-list .unread-message {
+  border-radius: 20px;
+  font-size: 24px;
+  font-weight: 300;
+  padding: 38px 20px;
+  margin: 40px 0px;
+}
+.message-list .read-message strong, .message-list .unread-message strong {
+  font-weight: 700;
+}
+.message-list .read-message .message-buttons, .message-list .unread-message .message-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.message-list .read-message .message-buttons .message-button, .message-list .unread-message .message-buttons .message-button {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.message-list .read-message .message-buttons .message-button img.prf, .message-list .unread-message .message-buttons .message-button img.prf {
+  height: 58px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.message-list .read-message .message-buttons .message-button img.accrj, .message-list .unread-message .message-buttons .message-button img.accrj {
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.message-list {
+  padding-right: 60px;
+  padding-left: 60px;
+}
+.message-list .unread-message {
+  background-color: #D33F49;
+  color: #fff;
+}
+.message-list .read-message {
+  background-color: #fff;
+  color: #D33F49;
+}
+
 /*# sourceMappingURL=style.css.map */
