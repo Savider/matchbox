@@ -72,7 +72,7 @@ def register(request):
 
 
 def project_page(request, project_id):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         is_participant = False
         is_owner = False
         request_sent = False
@@ -87,7 +87,6 @@ def project_page(request, project_id):
             is_participant = True
             if project_participation.owner:
                 is_owner = True
-                print("Is owner")
             pass
         elif notif is not None:
             request_sent = True
