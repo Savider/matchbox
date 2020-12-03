@@ -19,5 +19,30 @@ h2 {
 	font-size: 27px;
 	font-weight: bold;
 	line-height: 40px;
-	line-spacing: 0.1px;
+	letter-spacing: 0.1px;
+}
+
+h3 {
+	color: theme-color("primary");
+	font-size: 29px;	// yes its larger than h2
+	font-weight: bold;
+	line-height: 32px;
+	letter-spacing: 0.2px;
+	text-transform: uppercase;
+}
+
+.scrollable {
+	scrollbar-width: thin;
+	scrollbar-color: theme-color("primary") theme-color("bglight");
+}
+.scrollable::-webkit-scrollbar {
+  width: 7px;
+}
+.scrollable::-webkit-scrollbar-track {
+  background-color: theme-color("bglight");
+  border-radius: 20px;
+}
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: theme-color("primary");
+  border-radius: 20px;
 }

@@ -4,6 +4,7 @@
 
 $hotpink: #D33F49;
 $darkpurple: #221122;
+$darkpurplelight: #413341;	// great names
 $lighterrandomgray: #F2F2F2;
 $darkerrandomgray: #E7E7E7;
 
@@ -12,7 +13,8 @@ $theme-colors: (
 	"primary": $hotpink,
 	"secondarylight": $lighterrandomgray,
 	"secondarydark": $darkerrandomgray,
-	"bg": $darkpurple
+	"bg": $darkpurple,
+	"bglight": $darkpurplelight
 );
 
 $body-bg: $darkpurple;
