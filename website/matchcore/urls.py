@@ -12,9 +12,9 @@ urlpatterns = [
     path('register', views.register_page),
     path('register/submit', views.register),
 
-    path('project/<int:project_id>', views.project_page),
+    path('project/<int:project_id>/', views.project_page),
 
-    path('user/<str:username>', views.user_page),
+    path('user/<str:username>/', views.user_page),
 
     path('notifications', views.notifications_page),
 
