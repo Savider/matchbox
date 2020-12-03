@@ -1,0 +1,49 @@
+%base-message {
+	border-radius: 20px;
+	font-size: 24px;
+	font-weight: 300;
+	padding: 38px 20px;
+	margin: 40px 0px;
+
+	strong {
+		font-weight: 700;
+	}
+	.message-buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+
+		.message-button {
+			position: relative;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			
+			img.prf {
+				height: 58px;
+				@include center-in-btn;
+			}
+			img.accrj {
+				height: 30px;
+				@include center-in-btn;
+			}
+		}
+	}
+}
+
+.message-list {
+	padding-right: 60px;
+	padding-left: 60px;
+
+	.unread-message {
+		@extend %base-message;
+		background-color: theme-color("primary");
+		color: theme-color("text");
+	}
+	.read-message {
+		@extend %base-message;
+		background-color: theme-color("text");
+		color: theme-color("primary");
+	}
+}

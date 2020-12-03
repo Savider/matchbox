@@ -139,3 +139,7 @@ def find_page(request):
             return
 
     return render(request, 'matchcore/find_page.html', context)
+
+
+def bzz(request):
+    return render(request, 'matchcore/bzz.html')

@@ -1,0 +1,17 @@
+.create-button {
+	position: relative;
+	width: 72px;
+	height: 72px;
+    border-radius: 50%;
+
+    img {
+    	height: 35px;
+    	@include center-in-btn;
+    }
+}
+.create-button-text {
+	font-weight: 300;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 0.2px;
+}

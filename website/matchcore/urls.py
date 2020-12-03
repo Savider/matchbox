@@ -21,6 +21,10 @@ urlpatterns = [
     path('filter', views.filter_page),
 
     path('find', views.find_page),
+
+    path('notifications/', views.notifications_page),
+
+    path('bzz/', views.bzz)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
