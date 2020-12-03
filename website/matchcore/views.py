@@ -126,17 +126,21 @@ def find_page(request):
 
     # unfiltered page
     projects = Project.objects.filter(state='O')
-    context = {
-         'projects': projects,
-    }
-    if request.method == 'POST':
-        tags = request.POST.keys()
-        selected_tags = []
+    keys = list(request.GET.keys())
+    if len(keys)>0:
+        print("Here")
+        tags = request.GET.keys()
+        selected_projects = Project.objects.none()
         for t in tags:
-            if request.POST[t]:
-                selected_tags.append(t)
-        for p in projects:
-            return
+            if request.GET[t] == 'on':
+                # selected_tags.append(t)
+                selected_projects = selected_projects | Project.objects.filter(state='O').filter(tags__name=t)
+        projects = selected_projects.distinct()
+
+
+    context = {
+        'projects': projects,
+    }
 
     return render(request, 'matchcore/find_page.html', context)
 
