@@ -13,11 +13,23 @@
 	}
 }
 
-.modal-dialog {
-	max-width: 350px;
-}
 
 #loginModal {
+	.modal-content {
+		// border: 1px theme-color("primary") solid;
+	}
+	.modal-dialog {
+		max-width: 350px;
+	}
+	.modal-body:after {
+		content: "";
+		background: theme-color("primary");
+		position: absolute;
+		bottom: 0;
+		left: 5%;
+		width: 90%;
+		height: 1px;
+	}
 	.login-label {
 		font-weight: 300;
 		font-size: 20px;
@@ -31,14 +43,5 @@
 		border-radius: 40px;
 		font-weight: bold;
 		font-size: 18px;
-	}
-	.modal-body:after {
-		content: "";
-		background: theme-color("primary");
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		height: 50%;
-		width: 1px;
 	}
 }
