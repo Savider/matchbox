@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import JsonResponse
 
 from .models import *
 from .forms import *
@@ -163,7 +163,6 @@ def find_page(request):
         selected_projects = Project.objects.none()
         for t in tags:
             if request.GET[t] == 'on':
-                # selected_tags.append(t)
                 selected_projects = selected_projects | Project.objects.filter(state='O').filter(tags__name=t)
         projects = selected_projects.distinct()
 
@@ -175,20 +174,70 @@ def find_page(request):
     return render(request, 'matchcore/find_page.html', context)
 
 
-def request_join(request, project_id):
+def request_page(request, project_id):
+    context = {
+        'project_id': project_id,
+    }
+    return render(request, 'matchcore/request_page.html', context)
 
+
+def join_request(request):
+
+    project_id = request.POST.get('project_id')
     notif = Notification.objects.filter(type="JR").filter(project__id=project_id)
     if notif.count() > 0:
         # Already requested, do nothing
         return redirect(project_page, project_id=project_id)
 
     user = request.user
-    project = Project.objects.get(project_id)
-    owner = project.participants.filter(owner=True)
+    project = Project.objects.get(id=project_id)
+    owner = ProjectParticipation.objects.get(project=project, owner=True).person
     notif = Notification(sender=user.person, receiver=owner, project=project, type="JR")
     notif.save()
 
     return redirect(project_page, project_id=project_id)
+
+
+def create_project_page(request):
+    if request.user.is_authenticated:
+        form = CreateProjectForm()
+        context = {
+            'form': form,
+        }
+        return render(request, 'matchcore/create_project_page.html', context)
+
+    else:
+        return redirect(login_page)
+
+
+def create_project(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = CreateProjectForm(request.POST, request.FILES)
+            if form.is_valid():
+                title = form.cleaned_data['title']
+                small_description = form.cleaned_data['small_description']
+                big_description = form.cleaned_data['big_description']
+                img = form.cleaned_data['img']
+                complexity = form.cleaned_data['complexity']
+                theme = form.cleaned_data['theme']
+                technology = form.cleaned_data['technology']
+                language = form.cleaned_data['language']
+
+                tags = [ complexity , theme , technology , language]
+
+                project = Project.objects.create(title=title, small_description=small_description,
+                                                     big_description=big_description, img=img, state='O')
+                project.tags.set(tags)
+                project_participation = ProjectParticipation.objects.create(project=project,
+                                                                                person=request.user.person, owner=True)
+                return redirect(project_page, project_id=project.id)
+
+            else:
+                return redirect(login_page)
+
+    else:
+        return redirect(login_page)
 
 
 def bzz(request):
