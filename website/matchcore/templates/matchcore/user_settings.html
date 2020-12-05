@@ -1,0 +1,55 @@
+{% extends "matchcore/layout_empty.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container user-settings">
+	<div class="h-100 d-flex flex-column justify-content-center">
+		<div class="row pt-5 mb-5">
+			<div class="col-1">
+				<button class="close-button btn btn-primary">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+			</div>
+			<div class="col text-center"><h1>Todd Howard</h1></div>
+		</div>
+		<div class="row">
+			<div class="col-5 text-center">
+				<div class="user-picture-container embed-responsive embed-responsive-1by1">
+					<img class="user-picture embed-responsive-item" src="https://i0.kym-cdn.com/entries/icons/original/000/017/752/286.jpg">
+					<img class="overlay" src="{% static 'matchcore/images/register/click_blabla.svg' %}">
+				</div>
+			</div>
+			<div class="col d-flex flex-column justify-content-center">
+				<div class="row my-3">		<!-- Fixmeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
+					<div class="col-5 text-right register-input-label">Password</div>
+					<div class="col register-input">{{form.password}}</div>
+				</div>
+				<div class="row my-3">
+					<div class="col-5 text-right register-input-label">Email</div>
+					<div class="col register-input">{{form.email}}</div>
+				</div>
+				<div class="row my-3">
+					<div class="col-5 text-right register-input-label">Nationality</div>
+					<div class="col register-input">{{form.nationality}}</div>
+				</div>
+				<div class="row my-3">
+					<div class="col-5 text-right register-input-label">Phone Number</div>
+					<div class="col register-input">{{form.phone}}</div>
+				</div>
+				<div class="row my-3">
+					<div class="col-5 text-right register-input-label">Discord</div>
+					<div class="col register-input">{{form.discord}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="row text-center justify-content-center mt-3 mb-4">
+			<div class="col">
+				<button class="save-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/save.svg' %}"></button>
+				<span class="save-button-text d-block">Save</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
