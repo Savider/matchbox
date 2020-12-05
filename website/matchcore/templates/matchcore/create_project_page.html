@@ -1,4 +1,144 @@
-<!DOCTYPE html>
+{% extends "matchcore/layout_empty.html" %}
+{% load static %}
+
+{% block main %}
+
+<div class="container create-project-view">
+	<div class="h-100 d-flex flex-column justify-content-center">
+		<div class="row mb-3 mt-2">
+			<div class="col text-left px-0">
+				<button class="close-button btn btn-primary">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+			</div>
+		</div>
+		<div class="row px-5">
+			<div class="col-4 mr-4 embed-responsive embed-responsive-1by1"> <!-- not so responsive tbh -->
+				<img class="project-picture embed-responsive-item" src="{% static 'matchcore/images/create_placeholder.svg' %}">
+			</div>
+			<div class="col d-flex flex-column justify-content-between">
+				<div class="row d-flex flex-column mb-2">
+					<span class="register-input-label d-block">Project title</span>
+					<div class="col pl-0">{{form.title}}</div>
+				</div>
+				<div class="row d-flex flex-column mb-2">
+					<span class="register-input-label d-block">Five second pitch</span>
+					<div class="col pl-0">{{form.small_description}}</div>
+				</div>
+				<div class="row d-flex flex-column mb-2">
+					<span class="register-input-label d-block">Description</span>
+					<div class="col pl-0">{{form.big_description}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="row project-tags mt-5 px-5">
+			<div class="tags-item">
+				<button class="tags-circle btn btn-primary" data-toggle="modal" data-target="#complexityModalCreate"><img src="{% static 'matchcore/images/projects/tag-complexity-white.svg' %}"></button>
+				<div class="tags-desc"><span class="tags-name">Complexity</span>Placeholder</div>
+			</div>
+			<div class="tags-item">
+				<button class="tags-circle btn btn-primary" data-toggle="modal" data-target="#themeModalCreate"><img src="{% static 'matchcore/images/projects/tag-theme-white.svg' %}"></button>
+				<div class="tags-desc"><span class="tags-name">Theme</span>Placeholder</div>
+			</div>
+			<div class="tags-item">
+				<button class="tags-circle btn btn-primary" data-toggle="modal" data-target="#technologyModalCreate"><img src="{% static 'matchcore/images/projects/tag-technology-white.svg' %}"></button>
+				<div class="tags-desc"><span class="tags-name">Technology</span>Placeholder</div>
+			</div>
+			<div class="tags-item">
+				<button class="tags-circle btn btn-primary" data-toggle="modal" data-target="#languageModalCreate"><img src="{% static 'matchcore/images/projects/tag-language-white.svg' %}"></button>
+				<div class="tags-desc"><span class="tags-name">Language</span>Placeholder</div>
+			</div>
+		</div>
+		<div class="row text-center justify-content-center mt-4">
+			<div class="col">
+				<button class="publish-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/publish.svg' %}"></button>
+				<span class="publish-button-text d-block">Publish</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="complexityModalCreate" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+	      </div>
+		  <div class="modal-body text-center">
+		  	<!-- Form -->
+		  	<h5 class="filter-modal-label">Complexity</h5>
+		  	<div class="form-group mb-0">
+			    Here be a form
+			</div>
+			<!--  -->
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="themeModalCreate" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+	      </div>
+		  <div class="modal-body text-center">
+		  	<!-- Form -->
+		  	<h5 class="filter-modal-label">Theme</h5>
+		  	<div class="form-group mb-0">
+			    Here be a form
+			</div>
+			<!--  -->
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="technologyModalCreate" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+	      </div>
+		  <div class="modal-body text-center">
+		  	<!-- Form -->
+		  	<h5 class="filter-modal-label">Technology</h5>
+		  	<div class="form-group mb-0">
+			    Here be a form
+			</div>
+			<!--  -->
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="languageModalCreate" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+	      </div>
+		  <div class="modal-body text-center">
+		  	<!-- Form -->
+		  	<h5 class="filter-modal-label">Language</h5>
+		  	<div class="form-group mb-0">
+			    Here be a form
+			</div>
+			<!--  -->
+		  </div>
+		</div>
+	</div>
+</div>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,4 +151,4 @@
     <input type="submit" value="Submit">
 </form>
 </body>
-</html>
+</html> -->

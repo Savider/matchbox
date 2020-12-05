@@ -11,8 +11,8 @@
 		<div class="row">
 			<div class="col mx-1">
 				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/complexity.svg' %}"></button>
-					<span class="tag-name">Complexity</span>
+					<button class="tag-button btn btn-primary mb-2" data-toggle="modal" data-target="#complexityModal"><img src="{% static 'matchcore/images/filtertags/complexity.svg' %}"></button>
+					<span class="tag-name d-block">Complexity</span>
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
@@ -22,8 +22,8 @@
 			</div>
 			<div class="col mx-1">
 				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/theme.svg' %}"></button>
-					<span class="tag-name">Theme</span>
+					<button class="tag-button btn btn-primary mb-2"  data-toggle="modal" data-target="#themeModal"><img src="{% static 'matchcore/images/filtertags/theme.svg' %}"></button>
+					<span class="tag-name d-block">Theme</span>
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
@@ -40,20 +40,8 @@
 			</div>
 			<div class="col mx-1">
 				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/technology.svg' %}"></button>
-					<span class="tag-name">Technology</span>
-				</div>
-				<!-- List -->
-				<div class="tag-list scrollable">
-					<div class="tag-list-item">Programmer</div>
-					<div class="tag-list-item">Back-End Developer</div>
-					<div class="tag-list-item">Front-End Developer</div>
-				</div>
-			</div>
-			<div class="col mx-1">
-				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/role.svg' %}"></button>
-					<span class="tag-name">Role</span>
+					<button class="tag-button btn btn-primary mb-2" data-toggle="modal" data-target="#technologyModal"><img src="{% static 'matchcore/images/filtertags/technology.svg' %}"></button>
+					<span class="tag-name d-block">Technology</span>
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
@@ -73,8 +61,8 @@
 			</div>
 			<div class="col mx-1">
 				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/filtertags/language.svg' %}"></button>
-					<span class="tag-name">Language</span>
+					<button class="tag-button btn btn-primary mb-2" data-toggle="modal" data-target="#languageModal"><img src="{% static 'matchcore/images/filtertags/language.svg' %}"></button>
+					<span class="tag-name d-block">Language</span>
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
@@ -100,6 +88,86 @@
 				<button class="save-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/save.svg' %}"></button>
 				<span class="save-button-text d-block">Save</span>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="complexityModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+	      </div>
+		  <div class="modal-body text-center">
+		  	<!-- Form -->
+		  	<h5 class="filter-modal-label">Complexity</h5>
+		  	<div class="form-group mb-0">
+			    Here be a form
+			</div>
+			<!--  -->
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="themeModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+	      </div>
+		  <div class="modal-body text-center">
+		  	<!-- Form -->
+		  	<h5 class="filter-modal-label">Theme</h5>
+		  	<div class="form-group mb-0">
+			    Here be a form
+			</div>
+			<!--  -->
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="technologyModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+	      </div>
+		  <div class="modal-body text-center">
+		  	<!-- Form -->
+		  	<h5 class="filter-modal-label">Technology</h5>
+		  	<div class="form-group mb-0">
+			    Here be a form
+			</div>
+			<!--  -->
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="languageModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+	      </div>
+		  <div class="modal-body text-center">
+		  	<!-- Form -->
+		  	<h5 class="filter-modal-label">Language</h5>
+		  	<div class="form-group mb-0">
+			    Here be a form
+			</div>
+			<!--  -->
+		  </div>
 		</div>
 	</div>
 </div>
