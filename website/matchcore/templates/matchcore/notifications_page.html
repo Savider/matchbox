@@ -14,7 +14,7 @@
 						<strong>{{n.sender.user.username}}</strong> {%if n.accepted%}accepted {%else%}rejected {%endif%} your request to join the project <strong>{{n.project.title}}</strong>
 					</div>
 					<div class="col message-buttons">
-						<button class="message-button btn btn-text"><img class="prj" src="{% static 'matchcore/images/project.svg' %}"></button>
+						<a href="{% url 'project_page' n.project.id %}" class="message-button btn btn-text"><img class="prj" src="{% static 'matchcore/images/project.svg' %}"></a>
 						<div class="message-button-desc">Check project</div>
 					</div>
 				{% else %}
@@ -22,7 +22,7 @@
 						<strong>{{n.sender.user.username}}</strong> wants to join your project <strong>{{n.project.title}}</strong>
 					</div>
 					<div class="col message-buttons">
-						<button class="message-button btn btn-text"><img class="prf" src="{% static 'matchcore/images/profile.svg' %}"></button>
+						<a href="{% url 'user_page' n.sender.user.username %}" class="message-button btn btn-text"><img class="prf" src="{% static 'matchcore/images/profile.svg' %}"></a>
 						<button class="message-button btn btn-text"><img class="accrj" src="{% static 'matchcore/images/accept.svg' %}"></button>
 						<button class="message-button btn btn-text"><img class="accrj" src="{% static 'matchcore/images/reject.svg' %}"></button>
 					</div>
@@ -41,16 +41,28 @@
 					<strong>{{n.sender.user.username}}</strong> {%if n.accepted%}accepted {%else%}rejected {%endif%} your request to join the project <strong>{{n.project.title}}</strong>
 				</div>
 				<div class="col message-buttons">
-					<button class="message-button btn btn-primary"><img class="prj" src="{% static 'matchcore/images/project_white.svg' %}"></button>
+					<a href="{% url 'project_page' n.project.id %}" class="message-button btn btn-primary"><img class="prj" src="{% static 'matchcore/images/project_white.svg' %}"></a>
 					<div class="message-button-desc">Check project</div>
 				</div>
 			{% else %}
-			<div class="col-8">
-				You <strong>{%if n.accepted%}accepted {%else%}rejected {%endif%}</strong> the request of <strong>{{n.sender.user.username}}</strong> to join your project <strong>{{n.project.title}}</strong>
-			</div>
-			<div class="col message-buttons">
-				<!-- none? -->
-			</div>
+				{% if n.interacted %}
+					<div class="col-8">
+						You <strong>{%if n.accepted%}accepted {%else%}rejected {%endif%}</strong> the request of <strong>{{n.sender.user.username}}</strong> to join your project <strong>{{n.project.title}}</strong>
+					</div>
+					<div class="col message-buttons">
+						<a href="{% url 'project_page' n.project.id %}" class="message-button btn btn-primary"><img class="prj" src="{% static 'matchcore/images/profile_white.svg' %}"></a>
+						<div class="message-button-desc">Check profile</div>
+					</div>
+				{% else %}
+					<div class="col-8">
+							<strong>{{n.sender.user.username}}</strong> wants to join your project <strong>{{n.project.title}}</strong>
+						</div>
+						<div class="col message-buttons">
+							<a href="{% url 'user_page' n.sender.user.username %}" class="message-button btn btn-primary"><img class="prf" src="{% static 'matchcore/images/profile_white.svg' %}"></a>
+							<button class="message-button btn btn-primary"><img class="accrj" src="{% static 'matchcore/images/accept_white.svg' %}"></button>
+							<button class="message-button btn btn-primary"><img class="accrj" src="{% static 'matchcore/images/reject_white.svg' %}"></button>
+						</div>
+				{% endif %}
 			{% endif %}
 		</div>
 		{% endfor %}

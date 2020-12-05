@@ -1,0 +1,58 @@
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="74"
+   height="74"
+   viewBox="0 0 74 74"
+   fill="none"
+   version="1.1"
+   id="svg22"
+   sodipodi:docname="profile.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata28">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs26" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview24"
+     showgrid="false"
+     inkscape:zoom="7.9310625"
+     inkscape:cx="41.52602"
+     inkscape:cy="42.383442"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg22" />
+  <path
+     d="m 36.9919,64.3262 c -6.7431,0 -12.919,-2.4558 -17.6825,-6.5207 -1.1604,-0.9898 -1.83,-2.4412 -1.83,-3.9641 0,-6.8539 5.5469,-12.3393 12.4021,-12.3393 h 14.2403 c 6.8568,0 12.3826,5.4854 12.3826,12.3393 0,1.5245 -0.6664,2.9727 -1.8284,3.9625 -4.7619,4.0665 -10.9394,6.5223 -17.6841,6.5223 z"
+     id="path34"
+     style="fill:#ffffff;fill-opacity:1" />
+  <path
+     d="m 37,11.0635 c 6.761,0 12.2396,5.4805 12.2396,12.2385 0,6.7596 -5.4786,12.2385 -12.2396,12.2385 -6.7577,0 -12.2364,-5.4789 -12.2364,-12.2385 0,-6.758 5.4787,-12.2385 12.2364,-12.2385 z"
+     id="path32"
+     style="fill:#ffffff;fill-opacity:1" />
+</svg>

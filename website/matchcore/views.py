@@ -192,8 +192,9 @@ def find_page(request):
 
 
 def request_page(request, project_id):
+    project = Project.objects.get(id=project_id)
     context = {
-        'project_id': project_id,
+        'project': project,
     }
     return render(request, 'matchcore/request_page.html', context)
 
@@ -393,6 +394,3 @@ def finish_project(request, project_id):
     else:
         return redirect(login_page)
 
-
-def bzz(request):
-    return render(request, 'matchcore/user_settings.html')
