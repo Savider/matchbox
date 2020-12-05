@@ -24,6 +24,12 @@ urlpatterns = [
 
     path('notifications/', views.notifications_page),
 
+    path('request_page/<int:project_id>/', views.request_page),
+    path('join_request', views.join_request),
+
+    path('create_project', views.create_project_page),
+    path('create_project/submit', views.create_project),
+
     path('bzz/', views.bzz)
 ]
 

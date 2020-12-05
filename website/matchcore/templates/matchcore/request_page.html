@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/join_request" method="post" id="join-form">
+        {% csrf_token %}
+        <input type="hidden" id="project_id" name="project_id" value={{project_id}}>
+        <button type="submit" value="Submit">Join project {{project_id}}</button>
+    </form>
+</body>
+
+</html>
