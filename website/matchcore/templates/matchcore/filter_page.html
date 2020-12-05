@@ -3,6 +3,7 @@
 
 {% block main %}
 
+<form action="/find">
 <div class="container filter-list-page">
 	<div class="h-100 d-flex flex-column justify-content-center">
 		<div class="row justify-content-center mb-5">
@@ -16,8 +17,10 @@
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
-					<div class="tag-list-item">Easy</div>
-					<div class="tag-list-item">Moderate</div>
+					{% for t in complexity_tags %}
+					<div class="tag-list-item">{{t.name}}</div>
+					<input type="checkbox" id={{t.name}} name={{t.name}}><br>
+					{% endfor %}
 				</div>
 			</div>
 			<div class="col mx-1">
@@ -27,15 +30,10 @@
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
-					<div class="tag-list-item">Games</div>
-					<div class="tag-list-item">Web Design</div>
-					<div class="tag-list-item">UX/UI</div>
-					<div class="tag-list-item">Games</div>
-					<div class="tag-list-item">Web Design</div>
-					<div class="tag-list-item">UX/UI</div>
-					<div class="tag-list-item">Games</div>
-					<div class="tag-list-item">Web Design</div>
-					<div class="tag-list-item">UX/UI</div>
+					{% for t in theme_tags %}
+					<div class="tag-list-item">{{t.name}}</div>
+					<input type="checkbox" id={{t.name}} name={{t.name}}><br>
+					{% endfor %}
 				</div>
 			</div>
 			<div class="col mx-1">
@@ -45,18 +43,10 @@
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
-					<div class="tag-list-item">C/C++</div>
-					<div class="tag-list-item">Flutter</div>
-					<div class="tag-list-item">Java</div>
-					<div class="tag-list-item">Python</div>
-					<div class="tag-list-item">C/C++</div>
-					<div class="tag-list-item">Flutter</div>
-					<div class="tag-list-item">Java</div>
-					<div class="tag-list-item">Python</div>
-					<div class="tag-list-item">C/C++</div>
-					<div class="tag-list-item">Flutter</div>
-					<div class="tag-list-item">Java</div>
-					<div class="tag-list-item">Python</div>
+					{% for t in technology_tags %}
+					<div class="tag-list-item">{{t.name}}</div>
+					<input type="checkbox" id={{t.name}} name={{t.name}}><br>
+					{% endfor %}
 				</div>
 			</div>
 			<div class="col mx-1">
@@ -66,20 +56,10 @@
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
-					<div class="tag-list-item">English</div>
-					<div class="tag-list-item">Portuguese</div>
-					<div class="tag-list-item">Chinese</div>
-					<div class="tag-list-item">Japanese</div>
-					<div class="tag-list-item">Korean</div>
-					<div class="tag-list-item">German</div>
-					<div class="tag-list-item">French</div>
-					<div class="tag-list-item">English</div>
-					<div class="tag-list-item">Portuguese</div>
-					<div class="tag-list-item">Chinese</div>
-					<div class="tag-list-item">Japanese</div>
-					<div class="tag-list-item">Korean</div>
-					<div class="tag-list-item">German</div>
-					<div class="tag-list-item">French</div>
+					{% for t in language_tags %}
+					<div class="tag-list-item">{{t.name}}</div>
+					<input type="checkbox" id={{t.name}} name={{t.name}}><br>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
@@ -171,7 +151,7 @@
 		</div>
 	</div>
 </div>
-
+</form>
 {% endblock %}
 
 <!-- <!DOCTYPE html>

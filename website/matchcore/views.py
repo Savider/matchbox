@@ -169,8 +169,17 @@ def notifications_page(request):
 
 def filter_page(request):
     tags = ProjectTag.objects.all()
+    complexity_tags = ProjectTag.objects.filter(archetype='C')
+    theme_tags = ProjectTag.objects.filter(archetype='T')
+    technology_tags = ProjectTag.objects.filter(archetype='D')
+    language_tags = ProjectTag.objects.filter(archetype='L')
     context = {
         'tags': tags,
+        'complexity_tags': complexity_tags,
+        'theme_tags': theme_tags,
+        'technology_tags': technology_tags,
+        'language_tags': language_tags,
+
     }
     return render(request, 'matchcore/filter_page.html', context)
 
