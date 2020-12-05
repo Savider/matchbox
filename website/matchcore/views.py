@@ -331,7 +331,5 @@ def reject_request(request):
         return redirect(login_page)
 
 
-def
-
 def bzz(request):
     return render(request, 'matchcore/bzzzzzzz_deleteme.html')
