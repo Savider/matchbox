@@ -1,0 +1,19 @@
+.form-control {
+	border: none !important;
+    color: theme-color("inputs");
+}
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: theme-color("inputs");
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}

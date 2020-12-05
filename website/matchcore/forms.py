@@ -15,10 +15,17 @@ class RegisterForm(forms.Form):
     username = forms.CharField(label='Username', max_length=20)
     password = forms.CharField(label='Password', widget=PasswordInput())
     email = forms.CharField(label='E-mail', max_length=50)
-    img = forms.ImageField(label='Profile Picture')
-    nationality = forms.CharField(label='Nationality', max_length=20)
-    phone = forms.CharField(label='Phone Number', max_length=10)
-    discord = forms.CharField(label='Discord', max_length=20)
+    nationality = forms.CharField(label='Nationality', max_length=30, required=False)
+    img = forms.ImageField(label='Profile Picture', required=False) #required?
+    phone = forms.CharField(label='Phone Number', max_length=10, required=False)
+    discord = forms.CharField(label='Discord', max_length=20, required=False)
+    #widgets
+    username.widget = forms.TextInput(attrs={'class': 'form-control register-input r-req'})
+    password.widget = forms.PasswordInput(attrs={'class': 'form-control register-input r-req'})
+    email.widget = forms.EmailInput(attrs={'class': 'form-control register-input r-req'})
+    nationality.widget = forms.TextInput(attrs={'class': 'form-control register-input'})
+    phone.widget = forms.NumberInput(attrs={'class': 'form-control register-input'})
+    discord.widget = forms.TextInput(attrs={'class': 'form-control register-input'})
 
 
 class ProfileUpdateForm(forms.Form):

@@ -1,14 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "matchcore/layout_empty.html" %}
+{% load static %}
+
+{% block main %}
 <form enctype="multipart/form-data" action="/register/submit" method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
+	<div class="vh-100">
+		<div class="container pt-5" id="regPage12">
+			<div class="row">
+				<div class="col text-center mb-4 mt-3">
+					<h1 id="regHeader" class="register-header">What is your goal?</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div id="findProjBtn" class="col register-button-big">
+					<span class="mb-4">Finding a project</span>
+					<img src="{% static 'matchcore/images/register/project.svg' %}">
+				</div>
+				<div id="findTeamBtn" class="col register-button-big">
+					<span class="mb-4">Finding a team</span>
+					<img src="{% static 'matchcore/images/register/team.svg' %}">
+				</div>
+				<div id="newcomerBtn" style="display:none;" class="col register-button-big">
+					<span class="mb-4">Newcomer</span>
+					<img src="{% static 'matchcore/images/register/newcomer.svg' %}">
+				</div>
+				<div id="adeptBtn" style="display:none;" class="col register-button-big">
+					<span class="mb-4">Adept</span>
+					<img src="{% static 'matchcore/images/register/adept.svg' %}">
+				</div>
+				<div id="proBtn" style="display:none;" class="col register-button-big">
+					<span class="mb-4">Pro</span>
+					<img src="{% static 'matchcore/images/register/pro.svg' %}">
+				</div>
+			</div>
+			<div class="row">
+				<div id="notSureBtn1" class="col register-button-small">
+					Not sure
+				</div>
+				<div id="notSureBtn2" style="display:none;" class="col register-button-small">
+					Not sure
+				</div>
+			</div>
+		</div>
+		<div class="container pt-5" id="regPage3" style="display: none;">
+			<div class="row pt-5">
+				<div class="col-5 text-center">
+					<div class="register-picture-container embed-responsive embed-responsive-1by1">
+						<img class="register-picture embed-responsive-item" src="{% static 'matchcore/images/register/click_blabla.svg' %}">
+					</div>
+				</div>
+				<div class="col d-flex flex-column justify-content-center">
+					<div class="row my-3">
+						<div class="col-5 text-right register-input-label">Username *</div>
+						<div class="col register-input">{{form.username}}</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-5 text-right register-input-label">Password *</div>
+						<div class="col register-input">{{form.password}}</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-5 text-right register-input-label">Email *</div>
+						<div class="col register-input">{{form.email}}</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-5 text-right register-input-label">Nationality</div>
+						<div class="col register-input">{{form.nationality}}</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-5 text-right register-input-label">Phone Number</div>
+						<div class="col register-input">{{form.phone}}</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-5 text-right register-input-label">Discord</div>
+						<div class="col register-input">{{form.discord}}</div>
+					</div>
+					<div class="row my-3">
+						<div class="col text-right register-optional">* Required field</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="progress-bar-bottom">
+				<div class="row mb-5">
+					<div class="col">
+						<div class="progress-bar-container mt-2">
+							<div id="progressBar">
+								<div id="progressBarFull"></div>     
+							</div>
+						</div>
+					</div>
+					<div class="col-2">
+						<button id="nextBtn" class="btn btn-next">Next</button>
+						<input type="submit" value="Next" id="nextBtnSubmit" class="btn btn-next" style="display: none;"></input>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </form>
-</body>
-</html>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'matchcore/js/registration.js' %}"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.2.0.js" integrity="sha256-gvMJWDHjgDrVSiN6eBI9h7dRfQmsTTsGU/eTT8vpzNg="crossorigin="anonymous"></script>
+{% endblock %}
