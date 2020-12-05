@@ -1,0 +1,117 @@
+.register-header {
+	color: theme-color("text");
+	font-size: 80px;
+	font-weight: bold;
+	text-transform: none;
+}
+
+.register-button-big {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px 30px 50px 30px;
+	background-color: theme-color("bg");
+	border: 3px theme-color("primary") solid;
+	border-radius: 25px;
+	margin: 15px 20px;
+	cursor: pointer;
+
+	color: theme-color("primary");
+	font-size: 48px;
+	font-weight: bold;
+	transition: background-color 500ms ease-out;
+
+	img {
+		height: 110px;
+	}
+}
+.register-button-big.clicked, .register-button-small.clicked {
+	background-color: theme-color("primary");
+	color: theme-color("text");
+	// transition: all 0.5s ease-out;
+
+	object {
+		// svg fill... (or change in script)
+	}
+}
+
+.register-button-small {
+	background-color: theme-color("bg");
+	border: 3px theme-color("primary") solid;
+	border-radius: 25px;
+	margin: 15px 20px;
+	padding: 15px;
+	cursor: pointer;
+		
+	text-align: center;
+	color: theme-color("primary");
+	font-size: 30px;
+	font-weight: bold;
+	transition: background-color 500ms ease-out;
+}
+
+.progress-bar-bottom {
+	position: absolute;
+	bottom: 0px;
+	width: 1140px;
+}
+
+#progressBar {
+    height: 25px;
+    border: 3px theme-color("primary") solid;
+    border-radius: 25px;
+}
+
+#progressBarFull {
+    margin-left: -2px;
+    height: 20px;
+    background-color: theme-color("primary");
+    border-radius: 20px;
+    width: 33%;
+}
+
+.btn.btn-next {
+	border: 3px theme-color("primary") solid;
+	border-radius: 25px;
+	text-align: center;
+	color: theme-color("primary");
+	font-size: 28px;
+	font-weight: bold;
+	padding: 0px 25px;
+}
+.btn.btn-next:active, .btn.btn-next.active {
+	color: theme-color("text");
+	background-color: theme-color("primary")
+}
+
+.register-picture-container {
+	width: 90%;
+	position:relative;
+    display:inline-block;
+    text-align:center;
+
+	.register-picture {
+		object-fit: cover;
+		object-position: center;
+		border-radius: 50%;
+	}
+}
+
+.register-input-label {
+	font-size: 18px;
+	font-weight: 300;
+	color: theme-color("primary");
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.register-input {
+	height: 50px;
+}
+.register-optional {
+	font-size: 11px;
+	font-weight: 300;
+	color: theme-color("text");
+	text-transform: uppercase;
+}
