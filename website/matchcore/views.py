@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.forms import formset_factory
 
 from .models import *
 from .forms import *
@@ -36,7 +37,7 @@ def login_page(request):
     context = {
         'form': form,
     }
-    return render(request, 'matchcore/login_page.html', context)
+    return render(request, 'matchcore/landing_page.html', context)
 
 
 def register_page(request):
@@ -57,10 +58,14 @@ def register(request):
             img = form.cleaned_data['img']
             phone = form.cleaned_data['phone']
             discord = form.cleaned_data['discord']
-
+            objective_tag = form.cleaned_data['objective_tag']
+            expertise_tag = form.cleaned_data['expertise_tag']
             try:
                 user = User.objects.create_user(username, email, password)
                 person = Person.objects.create(user=user, img=img, phone=phone, discord=discord)
+                person.tags.add(UserTag.objects.filter(name=objective_tag).first())
+                person.tags.add(UserTag.objects.filter(name=expertise_tag).first())
+                person.save()
                 login(request, user)
                 return redirect(user_page, username=username)
             except:
@@ -327,6 +332,52 @@ def reject_request(request):
             return redirect(notifications_page)
         else:
             return redirect(login_page)
+    else:
+        return redirect(login_page)
+
+
+def finish_project_page(request, project_id):
+    project = Project.objects.filter(id=project_id)
+    if request.user.is_authenticated:
+        context = {}
+        project_participations = ProjectParticipation.objects.filter(project__id=project_id, owner=False)
+        num_participants = project_participations.count()
+
+        # creating a formset
+        EvaluateFormSet = formset_factory(EvaluateForm, extra=num_participants)
+        formset = EvaluateFormSet()
+
+        for form, participation in zip(formset, project_participations):
+            form.fields['name'].initial = participation.person.user.username
+
+        # Add the formset to context dictionary
+        context['formset'] = formset
+        context['project_id'] = project_id
+        return render(request, "matchcore/evaluate_page.html", context)
+    else:
+        return redirect(login_page)
+
+
+def finish_project(request, project_id):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            EvaluateFormSet = formset_factory(EvaluateForm)
+            formset = EvaluateFormSet(request.POST)
+            for form in formset:
+                if form.is_valid():
+                    username = form.cleaned_data['name']
+                    contribution = form.cleaned_data['contribution']
+                    project_participation = ProjectParticipation.objects.get(project__id=project_id,
+                                                                                person__user__username=username)
+                    project_participation.contribution = contribution
+                    project_participation.save()
+
+            project = Project.objects.get(id=project_id)
+            project.state = 'A'
+            project.save()
+            return redirect(project_page, project_id)
+        else:
+            return redirect(finish_project_page, project_id)
     else:
         return redirect(login_page)
 

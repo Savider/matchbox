@@ -33,6 +33,9 @@ urlpatterns = [
     path('profile_update', views.profile_update_page),
     path('profile_update/submit', views.profile_update),
 
+    path('evaluate/<int:project_id>/', views.finish_project_page),
+    path('evaluate/<int:project_id>/submit', views.finish_project),
+
     path('bzz/', views.bzz)
 ]
 

@@ -19,6 +19,8 @@ class RegisterForm(forms.Form):
     img = forms.ImageField(label='Profile Picture', required=False) #required?
     phone = forms.CharField(label='Phone Number', max_length=10, required=False)
     discord = forms.CharField(label='Discord', max_length=20, required=False)
+    objective_tag = forms.CharField(max_length=20, widget=forms.HiddenInput())
+    expertise_tag = forms.CharField(max_length=20, widget=forms.HiddenInput())
     #widgets
     username.widget = forms.TextInput(attrs={'class': 'form-control register-input r-req'})
     password.widget = forms.PasswordInput(attrs={'class': 'form-control register-input r-req'})
@@ -45,3 +47,8 @@ class CreateProjectForm(forms.Form):
     complexity = forms.ModelChoiceField(queryset=models.ProjectTag.objects.filter(archetype='C'))
     technology = forms.ModelChoiceField(queryset=models.ProjectTag.objects.filter(archetype='D'))
     language = forms.ModelChoiceField(queryset=models.ProjectTag.objects.filter(archetype='L'))
+
+
+class EvaluateForm(forms.Form):
+    name = forms.CharField(label='Username', max_length=20, widget=forms.HiddenInput())
+    contribution = forms.IntegerField(label='Evaluation')
