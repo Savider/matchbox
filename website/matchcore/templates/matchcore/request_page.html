@@ -74,8 +74,15 @@
 		</div>
 		<div class="row text-center justify-content-center mt-5 mb-4">
 			<div class="col">
-				<button class="join-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/accept_white.svg' %}"></button>
-				<span class="join-button-text d-block">Ask to Join</span>
+				{% if requested %}
+				<span class="join-button-text d-block">Request Sent</span>
+				{% else %}
+				<form action="submit" method="post">
+					{% csrf_token %}
+					<button class="join-button btn btn-primary mb-2" type="submit"><img src="{% static 'matchcore/images/accept_white.svg' %}"></button>
+					<span class="join-button-text d-block">Ask to Join</span>
+				</form>
+				{% endif %}
 			</div>
 		</div>
 	</div>

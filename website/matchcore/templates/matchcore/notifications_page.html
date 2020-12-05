@@ -23,8 +23,14 @@
 					</div>
 					<div class="col message-buttons">
 						<a href="{% url 'user_page' n.sender.user.username %}" class="message-button btn btn-text"><img class="prf" src="{% static 'matchcore/images/profile.svg' %}"></a>
-						<button class="message-button btn btn-text"><img class="accrj" src="{% static 'matchcore/images/accept.svg' %}"></button>
-						<button class="message-button btn btn-text"><img class="accrj" src="{% static 'matchcore/images/reject.svg' %}"></button>
+						<form action="/accept_request" method="post">
+							{% csrf_token %}
+							<button class="message-button btn btn-text" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/accept.svg' %}"></button>
+						</form>
+						<form action="/reject_request" method="post">
+							{% csrf_token %}
+							<button class="message-button btn btn-text" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/reject.svg' %}"></button>
+						</form>
 					</div>
 				{% endif %}
 			</div>
@@ -59,8 +65,14 @@
 						</div>
 						<div class="col message-buttons">
 							<a href="{% url 'user_page' n.sender.user.username %}" class="message-button btn btn-primary"><img class="prf" src="{% static 'matchcore/images/profile_white.svg' %}"></a>
-							<button class="message-button btn btn-primary"><img class="accrj" src="{% static 'matchcore/images/accept_white.svg' %}"></button>
-							<button class="message-button btn btn-primary"><img class="accrj" src="{% static 'matchcore/images/reject_white.svg' %}"></button>
+							<form action="/accept_request" method="post">
+								{% csrf_token %}
+								<button class="message-button btn btn-text" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/accept.svg' %}"></button>
+							</form>
+							<form action="/reject_request" method="post">
+								{% csrf_token %}
+								<button class="message-button btn btn-text" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/reject.svg' %}"></button>
+							</form>
 						</div>
 				{% endif %}
 			{% endif %}

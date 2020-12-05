@@ -83,6 +83,7 @@ def project_page(request, project_id):
         is_participant = False
         is_owner = False
         request_sent = False
+        my_score = 0
 
         current_project = Project.objects.get(id=project_id)
         user = request.user
@@ -92,6 +93,7 @@ def project_page(request, project_id):
 
         if project_participation is not None:
             # is in this project
+            my_score = project_participation.contribution
             is_participant = True
             if project_participation.owner:
                 is_owner = True
@@ -151,6 +153,8 @@ def notifications_page(request):
         unread_notifications = notifications_received.filter(read=False)
         read_notifications = list(read_notifications)
         unread_notifications = list(unread_notifications)
+        read_notifications.reverse()
+        unread_notifications.reverse()
 
         notifications_received.update(read=True)
 
@@ -196,19 +200,26 @@ def find_page(request):
 
 def request_page(request, project_id):
     project = Project.objects.get(id=project_id)
+    notif = Notification.objects.filter(type="JR").filter(project__id=project_id).filter(sender=request.user.person).first()
+    requested = False
+    if notif is not None:
+        requested = True
+    notif = Notification.objects.filter(type="RS").filter(project__id=project_id).filter(receiver=request.user.person).first()
+    if notif is not None:
+        requested = True
     context = {
         'project': project,
+        'requested': requested,
     }
     return render(request, 'matchcore/request_page.html', context)
 
 
-def join_request(request):
+def join_request(request, project_id):
 
-    project_id = request.POST.get('project_id')
-    notif = Notification.objects.filter(type="JR").filter(project__id=project_id)
+    notif = Notification.objects.filter(type="JR").filter(project__id=project_id).filter(sender=request.user.person)
     if notif.count() > 0:
         # Already requested, do nothing
-        return redirect(project_page, project_id=project_id)
+        return redirect(request_page, project_id=project_id)
 
     user = request.user
     project = Project.objects.get(id=project_id)
@@ -216,7 +227,7 @@ def join_request(request):
     notif = Notification(sender=user.person, receiver=owner, project=project, type="JR")
     notif.save()
 
-    return redirect(project_page, project_id=project_id)
+    return redirect(request_page, project_id=project_id)
 
 
 def create_project_page(request):
@@ -396,4 +407,3 @@ def finish_project(request, project_id):
             return redirect(finish_project_page, project_id)
     else:
         return redirect(login_page)
-
