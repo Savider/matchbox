@@ -18,3 +18,10 @@ class RegisterForm(forms.Form):
     img = forms.ImageField(label='Profile Picture')
     phone = forms.CharField(label='Phone Number', max_length=10)
     discord = forms.CharField(label='Discord', max_length=20)
+
+    #widgets
+    username.widget = forms.TextInput(attrs={'class': 'form-control register-input'})
+    password.widget = forms.PasswordInput(attrs={'class': 'form-control register-input'})
+    email.widget = forms.EmailInput(attrs={'class': 'form-control register-input'})
+    phone.widget = forms.NumberInput(attrs={'class': 'form-control register-input'})
+    discord.widget = forms.EmailInput(attrs={'class': 'form-control register-input'})

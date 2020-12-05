@@ -193,8 +193,4 @@ def request_join(request, proj_id):
 
 
 def bzz(request):
-    form = LoginForm()
-    context = {
-        'form': form,
-    }
-    return render(request, 'matchcore/landing_page.html', context)
+    return render(request, 'matchcore/bzzzzzzz_deleteme.html')
