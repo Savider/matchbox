@@ -10,15 +10,14 @@
 				<h1>{{current_project.title}}</h1>
 			</div>
 			<div class="col text-right px-0">
-				<span class="align-middle tiled-button-text">Tiled view</span>
-				<button class="tiled-button btn btn-primary">
-					<img src="{% static 'matchcore/images/tiled.svg' %}">
+				<button class="close-button btn btn-primary" onClick="javascript:history.go(-1);">
+					<img src="{% static 'matchcore/images/close.svg' %}">
 				</button>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-4 mr-4 embed-responsive embed-responsive-1by1"> <!-- not so responsive tbh -->
-				<img class="project-picture embed-responsive-item" src="{% static 'matchcore/images/projects/placeholder_ppage.svg' %}">
+			<div class="col-4 mr-4 embed-responsive embed-responsive-1by1">
+				<img class="project-picture embed-responsive-item" src="{{current_project.img.url}}">
 			</div>
 			<div class="col project-info ml-4">
 				<div class="row"><h2>Description</h2></div>
@@ -28,19 +27,47 @@
 				<div class="row project-tags">
 					<div class="tags-item">
 						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-complexity.svg' %}"></div>
-						<div class="tags-desc"><span class="tags-name">Complexity</span>Placeholder</div>
+						<div class="tags-desc">
+							<span class="tags-name">Complexity</span>
+							{% for t in current_project.tags.all %}
+								{% if t.archetype == 'C' %}
+									{{t.name}}
+								{% endif %}
+							{% endfor %}
+						</div>
 					</div>
 					<div class="tags-item">
 						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-theme.svg' %}"></div>
-						<div class="tags-desc"><span class="tags-name">Theme</span>Placeholder</div>
+						<div class="tags-desc">
+							<span class="tags-name">Theme</span>
+							{% for t in current_project.tags.all %}
+								{% if t.archetype == 'T' %}
+									{{t.name}}
+								{% endif %}
+							{% endfor %}
+						</div>
 					</div>
 					<div class="tags-item">
 						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-technology.svg' %}"></div>
-						<div class="tags-desc"><span class="tags-name">Technology</span>Placeholder</div>
+						<div class="tags-desc">
+							<span class="tags-name">Technology</span>
+							{% for t in current_project.tags.all %}
+								{% if t.archetype == 'D' %}
+									{{t.name}}
+								{% endif %}
+							{% endfor %}
+						</div>
 					</div>
 					<div class="tags-item">
 						<div class="tags-circle"><img src="{% static 'matchcore/images/projects/tag-language.svg' %}"></div>
-						<div class="tags-desc"><span class="tags-name">Language</span>Placeholder</div>
+						<div class="tags-desc">
+							<span class="tags-name">Language</span>
+							{% for t in current_project.tags.all %}
+								{% if t.archetype == 'L' %}
+									{{t.name}}
+								{% endif %}
+							{% endfor %}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -51,7 +78,11 @@
 				<div class="score-desc">Project score</div>
 			</div> -->
 			<div class="score-item">
-				<div class="score-circle">N/A</div>
+				<div class="score-circle">
+					{%if current_project.state == 'O'%} N/A
+					{% else %} {{my_score}}
+					{% endif %}
+				</div>
 				<div class="score-desc">Your contribution</div>
 			</div>
 		</div>

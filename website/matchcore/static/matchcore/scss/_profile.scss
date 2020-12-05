@@ -82,6 +82,7 @@
 
 	.project-item {
 		padding: 50px 45px;
+		cursor: pointer;
 		
 		.project-title {
 			font-family: 'Mulish', 'Lato', sans-serif;
@@ -128,5 +129,10 @@
 				}
 			}
 		}
+	}
+	.project-item:hover {
+		// border: 2px solid theme-color("primary");
+		background-color: lighten(theme-color("bg"), 1%);
+		border-radius: 10px;
 	}
 }

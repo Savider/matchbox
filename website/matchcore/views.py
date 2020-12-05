@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.forms import formset_factory
+from django.urls import reverse
 
 from .models import *
 from .forms import *
@@ -85,6 +86,7 @@ def project_page(request, project_id):
         current_project = Project.objects.get(id=project_id)
         user = request.user
         project_participation = user.person.project_participations.filter(project__id=project_id).first()
+        my_score = project_participation.contribution
         notif = Notification.objects.filter(sender=user.person, project=current_project, type="JR").first()
 
         if project_participation is not None:
@@ -101,6 +103,7 @@ def project_page(request, project_id):
             'request_sent': request_sent,
             'is_owner': is_owner,
             'is_participant': is_participant,
+            'my_score': my_score,
         }
         return render(request, 'matchcore/project_page.html', context)
     else:
@@ -191,8 +194,9 @@ def find_page(request):
 
 
 def request_page(request, project_id):
+    project = Project.objects.get(id=project_id)
     context = {
-        'project_id': project_id,
+        'project': project,
     }
     return render(request, 'matchcore/request_page.html', context)
 
@@ -391,7 +395,3 @@ def finish_project(request, project_id):
             return redirect(finish_project_page, project_id)
     else:
         return redirect(login_page)
-
-
-def bzz(request):
-    return render(request, 'matchcore/user_settings.html')

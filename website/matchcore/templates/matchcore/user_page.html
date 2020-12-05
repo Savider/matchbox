@@ -9,9 +9,13 @@
 			<div class="col-5 text-center">
 				<div class="user-picture-container embed-responsive embed-responsive-1by1">
 					<img class="user-picture embed-responsive-item" src="{{user.person.img.url}}">
-					<button class="edit-button btn btn-primary">
-						<img src="{% static 'matchcore/images/settings.svg' %}">
-					</button>
+					<a href="{% url 'profile_update' %}">
+						{% if user.username == request.user.username %}
+							<button class="edit-button btn btn-primary">
+								<img src="{% static 'matchcore/images/settings.svg' %}">
+							</button>
+						{% endif %}
+					</a>
 				</div>
 				<h1>{{user.username}}</h1>
 			</div>
@@ -44,10 +48,10 @@
 	<h1>Current projects</h1>
 	<div class="row project-list">
 		{% for p in current_projects %}
-			<div class="col-6 project-item">
+			<div class="col-6 project-item" onclick="location.href='{% url 'project_page' p.id %}'">
 				<div class="row">
 					<div class="col-7 text-center">
-						<img class="project-picture img-fluid" src="{% static 'matchcore/images/projects/placeholder.svg' %}">
+						<img class="project-picture img-fluid" src="{{p.img.url}}">
 						<div class="mt-4 px-2">
 							<span class="project-title mb-1">{{p.title}}</span>
 							<p class="project-short-desc">{{p.small_description}}</p>
@@ -113,10 +117,10 @@
 	<div class="row project-list">
 		<!-- Project item 1 -->
 		{% for p in archived_projects %}
-			<div class="col-6 project-item">
+			<div class="col-6 project-item" onclick="location.href='{% url 'project_page' p.id %}'">
 				<div class="row">
 					<div class="col-7 text-center">
-						<img class="project-picture img-fluid" src="{% static 'matchcore/images/projects/placeholder.svg' %}">
+						<img class="project-picture img-fluid" src="{{p.img.url}}">
 						<div class="mt-4 px-2">
 							<span class="project-title mb-1">{{p.title}}</span>
 							<p class="project-short-desc">{{p.small_description}}</p>

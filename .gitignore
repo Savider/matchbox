@@ -1,7 +1,4 @@
 
-.idea/vcs.xml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/matchbox.iml
-.idea/misc.xml
-.idea/modules.xml
 *.pyc
+*.xml
+*.iml
