@@ -16,14 +16,17 @@ urlpatterns = [
 
     path('user/<str:username>/', views.user_page, name="user_page"),
 
-    path('notifications', views.notifications_page, name="notifications"),
+    path('notifications/', views.notifications_page, name="notifications"),
 
     path('filter', views.filter_page, name="filter_page"),
 
     path('find', views.find_page, name="find_page"),
 
     path('request_page/<int:project_id>/', views.request_page, name="request_page"),
-    path('join_request', views.join_request),
+    path('request_page/<int:project_id>/submit', views.join_request),
+
+    path('accept_request', views.accept_request),
+    path('reject_request', views.reject_request),
 
     path('create_project', views.create_project_page, name="create_project"),
     path('create_project/submit', views.create_project),
