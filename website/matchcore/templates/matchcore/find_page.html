@@ -6,19 +6,15 @@
 <div class="container">
 	<div class="row mt-4">
 		<div class="col text-right">
-			<!-- <a href="#">
-				<div> -->
-					<button class="filter-button btn btn-primary mr-2">
-						<img src="{% static 'matchcore/images/settings.svg' %}">
-					</button>
-					<span class="align-middle filter-button-text">Filter settings</span>
-				<!-- </div>
-			</a> -->
+			<a href="{% url 'filter_page' %}" class="filter-button btn btn-primary mr-2">
+				<img src="{% static 'matchcore/images/settings.svg' %}">
+			</a>
+			<a href="{% url 'filter_page' %}" class="align-middle filter-button-text">Filter settings</a>
 		</div>
 	</div>
 	<div class="row project-list">
 		{% for p in projects %}
-			<div class="col-6 project-item">
+			<div class="col-6 project-item" onclick="location.href='{% url 'project_page' p.id %}'">
 				<div class="row">
 					<div class="col-7 text-center">
 						<img class="project-picture img-fluid" src="{% static 'matchcore/images/projects/placeholder.svg' %}">

@@ -269,7 +269,7 @@ def profile_update_page(request):
         context = {
             'form': form,
         }
-        return render(request, 'matchcore/profile_update_page.html', context)
+        return render(request, 'matchcore/user_settings.html', context)
 
     else:
         return redirect(login_page)
@@ -394,4 +394,4 @@ def finish_project(request, project_id):
 
 
 def bzz(request):
-    return render(request, 'matchcore/bzzzzzzz_deleteme.html')
+    return render(request, 'matchcore/user_settings.html')

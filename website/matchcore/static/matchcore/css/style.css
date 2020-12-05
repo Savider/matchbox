@@ -11026,6 +11026,7 @@ input[type=number] {
 }
 .project-list .project-item {
   padding: 50px 45px;
+  cursor: pointer;
 }
 .project-list .project-item .project-title {
   font-family: "Mulish", "Lato", sans-serif;
@@ -11068,6 +11069,10 @@ input[type=number] {
   font-weight: bold;
   text-transform: uppercase;
   display: block;
+}
+.project-list .project-item:hover {
+  background-color: #251325;
+  border-radius: 10px;
 }
 
 @media (min-width: 1200px) {
@@ -11288,27 +11293,6 @@ input[type=number] {
   text-transform: uppercase;
 }
 
-.create-button {
-  position: relative;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-}
-.create-button img {
-  height: 35px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.create-button-text {
-  font-weight: 300;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.2px;
-}
-
 /*---------- Create project page ----------*/
 @media (min-width: 1200px) {
   .container.create-project-view {
@@ -11316,7 +11300,7 @@ input[type=number] {
   }
 }
 .create-project-view {
-  height: 100vh;
+  height: calc(100vh - 107px);
 }
 .create-project-view .project-picture {
   width: 280px;
