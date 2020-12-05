@@ -19,8 +19,11 @@ class RegisterForm(forms.Form):
     img = forms.ImageField(label='Profile Picture', required=False) #required?
     phone = forms.CharField(label='Phone Number', max_length=10, required=False)
     discord = forms.CharField(label='Discord', max_length=20, required=False)
-    objective_tag = forms.CharField(max_length=20, widget=forms.HiddenInput())
-    expertise_tag = forms.CharField(max_length=20, widget=forms.HiddenInput())
+    # objective_tag = forms.CharField(max_length=20, widget=forms.HiddenInput())
+    # expertise_tag = forms.CharField(max_length=20, widget=forms.HiddenInput())
+    objective_tag = forms.CharField(max_length=20, required=False)
+    expertise_tag = forms.CharField(max_length=20, required=False)
+
     #widgets
     username.widget = forms.TextInput(attrs={'class': 'form-control register-input r-req'})
     password.widget = forms.PasswordInput(attrs={'class': 'form-control register-input r-req'})

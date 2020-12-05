@@ -37,6 +37,22 @@ function selectOption(args, event) {
 	button.style.color = '#FFFFFF';
 	nextBtn.classList.add("active");
 	canAdvance = true;
+
+	// spaghetti code below (even more than usual!)
+	if (button === findProjBtn)
+		$('#id_objective_tag').val('Joiner');
+	else if (button === findTeamBtn)
+		$('#id_objective_tag').val('Creator');
+	else if (button === notSureBtn1)
+		$('#id_objective_tag').val('');
+	else if (button === newcomerBtn)
+		$('#id_expertise_tag').val('Newcomer');
+	else if (button === adeptBtn)
+		$('#id_expertise_tag').val('Adept');
+	else if (button === proBtn)
+		$('#id_expertise_tag').val('Pro');
+	else if (button === notSureBtn2)
+		$('#id_expertise_tag').val('');
 }
 
 function clickNext(event) {
@@ -85,6 +101,10 @@ function changePage() {
 	page++;
 }
 
+
+/*------------------------------*/
+
+
 var $fields = $('.r-req');
 
 $fields.on('keyup change', function() {
@@ -97,4 +117,24 @@ function allFilled($fields) {
 	return $fields.filter(function() {
 	  return this.value === ''; 
 	}).length == 0;
+}
+
+$("#register-picture").attr("onclick","uploadImg()");
+$("#id_img").change(function() {
+  readURL(this);
+});
+
+function uploadImg(){
+    document.getElementById("id_img").click();
+}
+
+function readURL(input) {
+	console.log("doing shit")
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#register-picture').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
 }
