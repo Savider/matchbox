@@ -119,10 +119,21 @@ def user_page(request, username):
         else:
             archived_projects.append(p)
 
+    score = 0
+    score_amount = 0
+    for p in project_participations:
+        if p.project.state == 'A' and p.owner==False:
+            score += p.contribution
+            score_amount = score_amount+1
+
+    if score_amount > 0:
+        score = score/score_amount
+
     context = {
         'user': user,
         'current_projects': current_projects,
         'archived_projects': archived_projects,
+        'score': score,
     }
     return render(request, 'matchcore/user_page.html', context)
 
