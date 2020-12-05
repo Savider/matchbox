@@ -7,6 +7,10 @@
   box-shadow: none !important;
 }
 
+.modal-header {
+  border-bottom: none !important;
+}
+
 .modal-footer {
   border-top: none !important;
 }
@@ -10795,6 +10799,34 @@ h3 {
   border-radius: 20px;
 }
 
+.close-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.close-button img {
+  height: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-button-sm {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.close-button-sm img {
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .navbar-mbox {
   font-size: 14px;
   letter-spacing: 0.22px;
@@ -11148,6 +11180,24 @@ input[type=number] {
   text-transform: uppercase;
   line-height: 1.3;
 }
+.project-view .join-button {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+.project-view .join-button img {
+  height: 45px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.project-view .join-button-text {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 19px;
+}
 
 .filter-button {
   position: relative;
@@ -11203,7 +11253,8 @@ input[type=number] {
 .filter-list-page .tag-list .tag-list-item {
   font-weight: 300;
   font-size: 19px;
-  padding: 5px 15px;
+  padding: 5px 30px;
+  margin: 0px 10px;
 }
 .filter-list-page .save-button {
   position: relative;
@@ -11222,6 +11273,19 @@ input[type=number] {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 19px;
+}
+
+/*--------- Modals ---------*/
+#complexityModalCreate .modal-header, #themeModalCreate .modal-header, #technologyModalCreate .modal-header, #languageModalCreate .modal-header, #complexityModal .modal-header, #themeModal .modal-header, #technologyModal .modal-header, #languageModal .modal-header {
+  padding: 16px 16px 5px 16px;
+}
+#complexityModalCreate .modal-dialog, #themeModalCreate .modal-dialog, #technologyModalCreate .modal-dialog, #languageModalCreate .modal-dialog, #complexityModal .modal-dialog, #themeModal .modal-dialog, #technologyModal .modal-dialog, #languageModal .modal-dialog {
+  max-width: 350px;
+}
+#complexityModalCreate .filter-modal-label, #themeModalCreate .filter-modal-label, #technologyModalCreate .filter-modal-label, #languageModalCreate .filter-modal-label, #complexityModal .filter-modal-label, #themeModal .filter-modal-label, #technologyModal .filter-modal-label, #languageModal .filter-modal-label {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .create-button {
@@ -11243,6 +11307,79 @@ input[type=number] {
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0.2px;
+}
+
+/*---------- Create project page ----------*/
+@media (min-width: 1200px) {
+  .container.create-project-view {
+    max-width: 950px;
+  }
+}
+.create-project-view {
+  height: 100vh;
+}
+.create-project-view .project-picture {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}
+.create-project-view textarea {
+  height: 105px;
+}
+.create-project-view .project-tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.create-project-view .project-tags .tags-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.create-project-view .project-tags .tags-item .tags-circle {
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.create-project-view .project-tags .tags-item .tags-circle img {
+  width: 48px;
+  height: 48px;
+}
+.create-project-view .project-tags .tags-item .tags-desc {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.3;
+}
+.create-project-view .project-tags .tags-item .tags-desc .tags-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+.create-project-view .publish-button {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+.create-project-view .publish-button img {
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.create-project-view .publish-button-text {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 19px;
 }
 
 .message-list .read-message, .message-list .unread-message {
@@ -11416,6 +11553,55 @@ input[type=number] {
   font-weight: 300;
   color: #fff;
   text-transform: uppercase;
+}
+
+@media (min-width: 1200px) {
+  .container.user-settings {
+    max-width: 1000px;
+  }
+}
+.user-settings {
+  height: 100vh;
+}
+.user-settings .user-picture-container {
+  width: 75%;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.user-settings .user-picture-container .user-picture {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+.user-settings .user-picture-container .overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  border-radius: 50%;
+}
+.user-settings .user-picture-container .overlay img {
+  height: 33px;
+}
+.user-settings .save-button {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+.user-settings .save-button img {
+  height: 45px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.user-settings .save-button-text {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 19px;
 }
 
 /*# sourceMappingURL=style.css.map */

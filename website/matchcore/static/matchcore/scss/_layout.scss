@@ -46,3 +46,27 @@ h3 {
   background-color: theme-color("primary");
   border-radius: 20px;
 }
+
+.close-button {
+	position: relative;
+	width: 40px;
+	height: 40px;
+    border-radius: 50%;
+
+    img {
+    	height: 22px;
+    	@include center-in-btn;
+    }
+}
+
+.close-button-sm {
+	position: relative;
+	width: 28px;
+	height: 28px;
+    border-radius: 50%;
+
+    img {
+    	height: 14px;
+    	@include center-in-btn;
+    }
+}

@@ -29,6 +29,9 @@ $body-bg: $darkpurple;
 
 $modal-content-bg: $darkpurple;
 
+.modal-header {
+	border-bottom: none !important;
+}
 .modal-footer {
 	border-top: none !important;
 }

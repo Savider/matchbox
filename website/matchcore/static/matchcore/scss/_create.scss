@@ -15,3 +15,86 @@
 	text-transform: uppercase;
 	letter-spacing: 0.2px;
 }
+
+
+/*---------- Create project page ----------*/
+
+
+@media (min-width: 1200px) {
+    .container.create-project-view {
+        max-width: 950px;
+    }
+}
+.create-project-view {
+	height: 100vh;
+
+	.project-picture {
+		width: 280px;	// i've done had enough of this
+		height: 280px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 20px;
+	}
+	textarea {
+		height: 105px;
+	}
+	.project-tags {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		.tags-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			.tags-circle {
+				height: 85px;
+				width: 85px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 10px;
+
+				img {
+					width: 48px;
+					height: 48px;
+				}
+			}
+			.tags-desc {
+				text-align: center;
+				font-size: 14px;
+				font-weight: 300;
+				line-height: 1.3;
+
+				.tags-name {
+					font-weight: bold;
+					text-transform: uppercase;
+					display: block;
+				}
+			}
+		}
+	}
+	.publish-button {
+		position: relative;
+		width: 90px;
+		height: 90px;
+	    border-radius: 50%;
+
+	    img {
+	    	height: 70px;
+	    	@include center-in-btn;
+	    }
+	}
+	.publish-button-text {
+		text-transform: uppercase;
+		font-weight: 300;
+		font-size: 19px;
+	}
+}
+
+#complexityModalCreate, #themeModalCreate, #technologyModalCreate, #languageModalCreate {
+	@extend %filter-modal;
+}

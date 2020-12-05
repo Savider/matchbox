@@ -116,4 +116,20 @@
 			}
 		}
 	}
+	.join-button {
+		position: relative;
+		width: 90px;
+		height: 90px;
+	    border-radius: 50%;
+
+	    img {
+	    	height: 45px;
+	    	@include center-in-btn;
+	    }
+	}
+	.join-button-text {
+		text-transform: uppercase;
+		font-weight: 300;
+		font-size: 19px;
+	}
 }
