@@ -30,6 +30,9 @@ urlpatterns = [
     path('create_project', views.create_project_page),
     path('create_project/submit', views.create_project),
 
+    path('profile_update', views.profile_update_page),
+    path('profile_update/submit', views.profile_update),
+
     path('bzz/', views.bzz)
 ]
 

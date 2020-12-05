@@ -11,14 +11,23 @@ class LoginForm(forms.Form):
     password.widget = forms.PasswordInput(attrs={'class': 'form-control'})
 
 
-
 class RegisterForm(forms.Form):
     username = forms.CharField(label='Username', max_length=20)
     password = forms.CharField(label='Password', widget=PasswordInput())
     email = forms.CharField(label='E-mail', max_length=50)
     img = forms.ImageField(label='Profile Picture')
+    nationality = forms.CharField(label='Nationality', max_length=20)
     phone = forms.CharField(label='Phone Number', max_length=10)
     discord = forms.CharField(label='Discord', max_length=20)
+
+
+class ProfileUpdateForm(forms.Form):
+    email = forms.CharField(label='E-mail', max_length=50)
+    img = forms.ImageField(label='Profile Picture')
+    nationality = forms.CharField(label='Nationality', max_length=20)
+    phone = forms.CharField(label='Phone Number', max_length=10)
+    discord = forms.CharField(label='Discord', max_length=20)
+
 
 class CreateProjectForm(forms.Form):
     title = forms.CharField(label='Title', max_length=50)

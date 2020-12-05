@@ -60,6 +60,7 @@ class Project(models.Model):
 class ProjectParticipation(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='project_participations')
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_participants')
+    contribution = models.IntegerField(default=0)
     owner = models.BooleanField(default=False)
 
 
@@ -75,3 +76,4 @@ class Notification(models.Model):
     type = models.CharField(max_length=2, choices=TYPE)
     read = models.BooleanField(default=False)
     accepted = models.BooleanField(default=False)
+    interacted = models.BooleanField(default=False)

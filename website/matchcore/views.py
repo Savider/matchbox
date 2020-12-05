@@ -240,6 +240,99 @@ def create_project(request):
         return redirect(login_page)
 
 
+def profile_update_page(request):
+    if request.user.is_authenticated:
+        person = request.user.person
+        form = ProfileUpdateForm(initial={
+            'email': request.user.email,
+            'img': person.img,
+            'phone': person.phone,
+            'nationality': person.nationality,
+            'discord': person.discord
+        })
+        context = {
+            'form': form,
+        }
+        return render(request, 'matchcore/profile_update_page.html', context)
+
+    else:
+        return redirect(login_page)
+
+
+def profile_update(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = ProfileUpdateForm(request.POST, request.FILES)
+            if form.is_valid():
+                email = form.cleaned_data['email']
+                img = form.cleaned_data['img']
+                nationality = form.cleaned_data['nationality']
+                phone = form.cleaned_data['phone']
+                discord = form.cleaned_data['discord']
+
+                person = request.user.person
+                request.user.email = email
+                request.user.save()
+                person.img = img
+                person.nationality = nationality
+                person.phone = phone
+                person.discord = discord
+                person.save()
+
+                return redirect(user_page, username=request.user.username)
+
+            else:
+                return redirect(profile_update_page)
+        else:
+            return redirect(profile_update_page)
+    else:
+        return redirect(login_page)
+
+
+def accept_request(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            notification_id = request.POST.get('notification_id')
+            notification = Notification.objects.get(id=notification_id)
+            notification.accepted = True
+            notification.interacted = True
+            new_notif = Notification(type='RS', project=notification.project, sender=notification.receiver,
+                                     receiver=notification.sender, accepted=True)
+            project_participation = ProjectParticipation(person=notification.sender, project=notification.project)
+
+            notification.save()
+            new_notif.save()
+            project_participation.save()
+
+            return redirect(notifications_page)
+        else:
+            return redirect(login_page)
+    else:
+        return redirect(login_page)
+
+
+def reject_request(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            notification_id = request.POST.get('notification_id')
+            notification = Notification.objects.get(id=notification_id)
+            notification.accepted = False
+            notification.interacted = True
+            new_notif = Notification(type='RS', project=notification.project, sender=notification.receiver,
+                                     receiver=notification.sender, accepted=False)
+
+            notification.save()
+            new_notif.save()
+
+            return redirect(notifications_page)
+        else:
+            return redirect(login_page)
+    else:
+        return redirect(login_page)
+
+
+def
+
 def bzz(request):
     form = LoginForm()
     context = {
