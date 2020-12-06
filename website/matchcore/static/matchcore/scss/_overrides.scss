@@ -36,4 +36,8 @@ $modal-content-bg: $darkpurple;
 	border-top: none !important;
 }
 
+$tooltip-color: theme-color("text");
+$tooltip-bg: darken(theme-color("bg"), 3%);
+$tooltip-arrow-color: darken(theme-color("bg"), 3%);
+
 @import "bootstrap/bootstrap";

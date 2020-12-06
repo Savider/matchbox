@@ -395,6 +395,8 @@ def finish_project_page(request, project_id):
         # Add the formset to context dictionary
         context['formset'] = formset
         context['project_id'] = project_id
+        context['participations'] = project_participations
+
         return render(request, "matchcore/evaluate_page.html", context)
     else:
         return redirect(login_page)
@@ -404,7 +406,7 @@ def finish_project(request, project_id):
     if request.user.is_authenticated:
         if request.method == 'POST':
             EvaluateFormSet = formset_factory(EvaluateForm)
-            formset = EvaluateFormSet(request.POST)
+            formset = EvaluateFormSet(request.POST or None)
             for form in formset:
                 if form.is_valid():
                     username = form.cleaned_data['name']
@@ -417,7 +419,7 @@ def finish_project(request, project_id):
             project = Project.objects.get(id=project_id)
             project.state = 'A'
             project.save()
-            return redirect(project_page, project_id)
+            return redirect(user_page, username=request.user.username)
         else:
             return redirect(finish_project_page, project_id)
     else:

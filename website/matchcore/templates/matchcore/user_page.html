@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block main %}
+<img id="arrowDown" src="{% static 'matchcore/images/arrow_down.svg' %}">
 <div class="container user-info">
 	<!-- User info -->
 	<div class="h-100 d-flex flex-column justify-content-center">
@@ -18,15 +19,32 @@
 					</a>
 				</div>
 				<h1>{{user.username}}</h1>
+				<div class="user-tags">
+					{% for tag in user.person.tags.all %}
+						<button type="button" class="tag-circle btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="{{tag.name}}">
+							{% if tag.name == 'Creator' %}
+								<img src="{% static 'matchcore/images/register/project_white.svg' %}">
+							{% elif tag.name == 'Joiner' %}
+								<img src="{% static 'matchcore/images/register/team_white.svg' %}">
+							{% elif tag.name == 'Pro' %}
+								<img src="{% static 'matchcore/images/register/pro_white.svg' %}">
+							{% elif tag.name == 'Adept' %}
+								<img src="{% static 'matchcore/images/register/adept_white.svg' %}">
+							{% elif tag.name == 'Newcomer' %}
+								<img src="{% static 'matchcore/images/register/newcomer_white.svg' %}">
+							{% endif %}
+						</button>
+					{% endfor %}
+				</div>
 			</div>
 			<div class="col user-stats ml-2">
 				<div class="stats-item">
-					<div class="stats-circle">{{current_projects|length}}</div>
-					<div class="stats-desc">Current projects</div>
+					<div id="circCurrPrj" class="stats-circle">{{current_projects|length}}</div>
+					<div id="txtCurrPrj" class="stats-desc">Current projects</div>
 				</div>
 				<div class="stats-item">
-					<div class="stats-circle">{{archived_projects|length}}</div>
-					<div class="stats-desc">Archived projects</div>
+					<div id="circArchPrj" class="stats-circle">{{archived_projects|length}}</div>
+					<div id="txtArchPrj" class="stats-desc">Archived projects</div>
 				</div>
 				<div class="stats-item">
 					<div class="stats-circle">{{score}}</div>
@@ -44,7 +62,7 @@
 </div>
 
 <!-- Current projects -->
-<div class="container mt-5 mb-5">
+<div id="currentProjs" class="container mt-5 mb-5">
 	<h1>Current projects</h1>
 	<div class="row project-list">
 		{% for p in current_projects %}
@@ -112,7 +130,7 @@
 </div>
 
 <!-- Archived projects -->
-<div class="container mt-5">
+<div id="archivedProjs" class="container mt-5">
 	<h1>Archived projects</h1>
 	<div class="row project-list">
 		<!-- Project item 1 -->
@@ -180,4 +198,10 @@
 	</div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'matchcore/js/tooltips.js' %}"></script>
+    <script src="{% static 'matchcore/js/profile.js' %}"></script>
 {% endblock %}

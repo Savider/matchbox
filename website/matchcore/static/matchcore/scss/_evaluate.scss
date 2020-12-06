@@ -1,0 +1,45 @@
+@media (min-width: 1200px) {
+    .container.evaluate-view {
+        max-width: 1000px;
+    }
+}
+
+.evaluate-view {
+	height: 100vh;
+
+	.user-picture-container {
+		width: 55%;
+		margin-bottom: 5px;
+		position:relative;
+	    display:inline-block;
+	    text-align:center;
+
+		.user-picture {
+			object-fit: cover;
+  			object-position: center;
+			border-radius: 50%;
+		}
+	}
+	.participant-name {
+		color: theme-color("primary");
+		letter-spacing: 0.5px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.save-button {
+		position: relative;
+		width: 90px;
+		height: 90px;
+	    border-radius: 50%;
+
+	    img {
+	    	height: 45px;
+	    	@include center-in-btn;
+	    }
+	}
+	.save-button-text {
+		text-transform: uppercase;
+		font-weight: 300;
+		font-size: 19px;
+	}
+}
