@@ -189,7 +189,7 @@ def filter_page(request):
 
 def find_page(request):
     # unfiltered page
-    projects = Project.objects.filter(state='O')
+    projects = Project.objects.filter(state='O').exclude(participants__user__username=request.user.username)
     keys = list(request.GET.keys())
     if len(keys) > 0:
         print("Here")
