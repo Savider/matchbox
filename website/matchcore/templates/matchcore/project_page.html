@@ -10,7 +10,7 @@
 				<h1>{{current_project.title}}</h1>
 			</div>
 			<div class="col text-right px-0">
-				<button class="close-button btn btn-primary" onClick="javascript:history.go(-1);">
+				<button class="close-button btn btn-primary" onClick="javascript:window.location=document.referrer;">
 					<img src="{% static 'matchcore/images/close.svg' %}">
 				</button>
 			</div>
@@ -72,11 +72,8 @@
 				</div>
 			</div>
 		</div>
+		{%if is_owner %}<div style="opacity: 0;">{% endif %}
 		<div class="row project-score">
-			<!-- <div class="score-item">
-				<div class="score-circle">N/A</div>
-				<div class="score-desc">Project score</div>
-			</div> -->
 			<div class="score-item">
 				<div class="score-circle">
 					{%if current_project.state == 'O'%} N/A
@@ -86,6 +83,7 @@
 				<div class="score-desc">Your contribution</div>
 			</div>
 		</div>
+		{%if is_owner %}</div>{% endif %}
 	</div>
 </div>
 

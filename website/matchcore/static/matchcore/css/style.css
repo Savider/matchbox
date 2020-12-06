@@ -11308,6 +11308,7 @@ input[type=number] {
   object-fit: cover;
   object-position: center;
   border-radius: 20px;
+  cursor: pointer;
 }
 .create-project-view textarea {
   height: 105px;

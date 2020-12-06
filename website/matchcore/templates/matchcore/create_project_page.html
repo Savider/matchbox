@@ -3,11 +3,15 @@
 
 {% block main %}
 
+<form enctype="multipart/form-data" action="create_project/submit" method="post">
+{% csrf_token %}
+
 <div class="container create-project-view">
 	<div class="h-100 d-flex flex-column justify-content-center">
 		<div class="row px-5">
-			<div class="col-4 mr-4 embed-responsive embed-responsive-1by1"> <!-- not so responsive tbh -->
-				<img class="project-picture embed-responsive-item" src="{% static 'matchcore/images/create_placeholder.svg' %}">
+			<div class="col-4 mr-4 embed-responsive embed-responsive-1by1">
+				<img id="projImg" class="project-picture embed-responsive-item" src="{% static 'matchcore/images/create_placeholder.svg' %}">
+				<div style="display: none;">{{form.img}}</div>
 			</div>
 			<div class="col d-flex flex-column justify-content-between">
 				<div class="row d-flex flex-column mb-2">
@@ -26,25 +30,37 @@
 		</div>
 		<div class="row project-tags mt-5 px-5">
 			<div class="tags-item">
-				<button class="tags-circle btn btn-primary" data-toggle="modal" data-target="#complexityModalCreate"><img src="{% static 'matchcore/images/projects/tag-complexity-white.svg' %}"></button>
-				<div class="tags-desc"><span class="tags-name">Complexity</span>Placeholder</div>
+				<button type="button" class="tags-circle btn btn-primary" data-toggle="modal" data-target="#complexityModalCreate"><img src="{% static 'matchcore/images/projects/tag-complexity-white.svg' %}"></button>
+				<div class="tags-desc">
+					<span class="tags-name">Complexity</span>
+					<span id="selectedComplexity">None</span>
+				</div>
 			</div>
 			<div class="tags-item">
-				<button class="tags-circle btn btn-primary" data-toggle="modal" data-target="#themeModalCreate"><img src="{% static 'matchcore/images/projects/tag-theme-white.svg' %}"></button>
-				<div class="tags-desc"><span class="tags-name">Theme</span>Placeholder</div>
+				<button type="button" class="tags-circle btn btn-primary" data-toggle="modal" data-target="#themeModalCreate"><img src="{% static 'matchcore/images/projects/tag-theme-white.svg' %}"></button>
+				<div class="tags-desc">
+					<span class="tags-name">Theme</span>
+					<span id="selectedTheme">None</span>
+				</div>
 			</div>
 			<div class="tags-item">
-				<button class="tags-circle btn btn-primary" data-toggle="modal" data-target="#technologyModalCreate"><img src="{% static 'matchcore/images/projects/tag-technology-white.svg' %}"></button>
-				<div class="tags-desc"><span class="tags-name">Technology</span>Placeholder</div>
+				<button type="button" class="tags-circle btn btn-primary" data-toggle="modal" data-target="#technologyModalCreate"><img src="{% static 'matchcore/images/projects/tag-technology-white.svg' %}"></button>
+				<div class="tags-desc">
+					<span class="tags-name">Technology</span>
+					<span id="selectedTechnology">None</span>
+				</div>
 			</div>
 			<div class="tags-item">
-				<button class="tags-circle btn btn-primary" data-toggle="modal" data-target="#languageModalCreate"><img src="{% static 'matchcore/images/projects/tag-language-white.svg' %}"></button>
-				<div class="tags-desc"><span class="tags-name">Language</span>Placeholder</div>
+				<button type="button" class="tags-circle btn btn-primary" data-toggle="modal" data-target="#languageModalCreate"><img src="{% static 'matchcore/images/projects/tag-language-white.svg' %}"></button>
+				<div class="tags-desc">
+					<span class="tags-name">Language</span>
+					<span id="selectedLanguage">None</span>
+				</div>
 			</div>
 		</div>
 		<div class="row text-center justify-content-center mt-5">
 			<div class="col">
-				<button class="publish-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/publish.svg' %}"></button>
+				<button type="submit" class="publish-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/publish.svg' %}"></button>
 				<span class="publish-button-text d-block">Publish</span>
 			</div>
 		</div>
@@ -55,7 +71,7 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 		  <div class="modal-header">
-		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+		      <button type="button" class="close-button-sm btn btn-primary" data-dismiss="modal">
 					<img src="{% static 'matchcore/images/close.svg' %}">
 				</button>
 	      </div>
@@ -63,7 +79,10 @@
 		  	<!-- Form -->
 		  	<h5 class="filter-modal-label">Complexity</h5>
 		  	<div class="form-group mb-0">
-			    Here be a form
+				{% for c in form.fields.complexity.queryset %}
+					<a class="complexity-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+				{% endfor %}
+				<div style="display: none;">{{form.complexity}}</div>
 			</div>
 			<!--  -->
 		  </div>
@@ -75,7 +94,7 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 		  <div class="modal-header">
-		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+		      <button type="button" class="close-button-sm btn btn-primary" data-dismiss="modal">
 					<img src="{% static 'matchcore/images/close.svg' %}">
 				</button>
 	      </div>
@@ -83,7 +102,10 @@
 		  	<!-- Form -->
 		  	<h5 class="filter-modal-label">Theme</h5>
 		  	<div class="form-group mb-0">
-			    Here be a form
+			    {% for c in form.fields.theme.queryset %}
+					<a class="theme-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+				{% endfor %}
+				<div style="display: none;">{{form.theme}}</div>
 			</div>
 			<!--  -->
 		  </div>
@@ -95,7 +117,7 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 		  <div class="modal-header">
-		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+		      <button type="button" class="close-button-sm btn btn-primary" data-dismiss="modal">
 					<img src="{% static 'matchcore/images/close.svg' %}">
 				</button>
 	      </div>
@@ -103,7 +125,10 @@
 		  	<!-- Form -->
 		  	<h5 class="filter-modal-label">Technology</h5>
 		  	<div class="form-group mb-0">
-			    Here be a form
+			    {% for c in form.fields.technology.queryset %}
+					<a class="technology-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+				{% endfor %}
+				<div style="display: none;">{{form.technology}}</div>
 			</div>
 			<!--  -->
 		  </div>
@@ -115,7 +140,7 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 		  <div class="modal-header">
-		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
+		      <button type="button" class="close-button-sm btn btn-primary" data-dismiss="modal">
 					<img src="{% static 'matchcore/images/close.svg' %}">
 				</button>
 	      </div>
@@ -123,7 +148,10 @@
 		  	<!-- Form -->
 		  	<h5 class="filter-modal-label">Language</h5>
 		  	<div class="form-group mb-0">
-			    Here be a form
+			    {% for c in form.fields.language.queryset %}
+					<a class="language-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+				{% endfor %}
+				<div style="display: none;">{{form.language}}</div>
 			</div>
 			<!--  -->
 		  </div>
@@ -131,19 +159,12 @@
 	</div>
 </div>
 
+</form>
+
 {% endblock %}
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form enctype="multipart/form-data" action="create_project/submit" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-</body>
-</html> -->
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'matchcore/js/create.js' %}"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.2.0.js" integrity="sha256-gvMJWDHjgDrVSiN6eBI9h7dRfQmsTTsGU/eTT8vpzNg="crossorigin="anonymous"></script>
+{% endblock %}
