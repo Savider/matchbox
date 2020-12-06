@@ -15,7 +15,7 @@
 					</div>
 					<div class="col message-buttons">
 						<a href="{% url 'project_page' n.project.id %}" class="message-button btn btn-text"><img class="prj" src="{% static 'matchcore/images/project.svg' %}"></a>
-						<div class="message-button-desc">Check project</div>
+						<div class="message-button-desc"><a href="{% url 'project_page' n.project.id %}">Check project</a></div>
 					</div>
 				{% else %}
 					<div class="col-8">
@@ -48,7 +48,7 @@
 				</div>
 				<div class="col message-buttons">
 					<a href="{% url 'project_page' n.project.id %}" class="message-button btn btn-primary"><img class="prj" src="{% static 'matchcore/images/project_white.svg' %}"></a>
-					<div class="message-button-desc">Check project</div>
+					<div class="message-button-desc"><a href="{% url 'project_page' n.project.id %}">Check project</a></div>
 				</div>
 			{% else %}
 				{% if n.interacted %}
@@ -56,8 +56,8 @@
 						You <strong>{%if n.accepted%}accepted {%else%}rejected {%endif%}</strong> the request of <strong>{{n.sender.user.username}}</strong> to join your project <strong>{{n.project.title}}</strong>
 					</div>
 					<div class="col message-buttons">
-						<a href="{% url 'project_page' n.project.id %}" class="message-button btn btn-primary"><img class="prj" src="{% static 'matchcore/images/profile_white.svg' %}"></a>
-						<div class="message-button-desc">Check profile</div>
+						<a href="{% url 'user_page' n.sender.user.username %}" class="message-button btn btn-primary"><img class="prf" src="{% static 'matchcore/images/profile_white.svg' %}"></a>
+						<div class="message-button-desc"><a href="{% url 'user_page' n.sender.user.username %}">Check profile</a></div>
 					</div>
 				{% else %}
 					<div class="col-8">
@@ -67,11 +67,11 @@
 							<a href="{% url 'user_page' n.sender.user.username %}" class="message-button btn btn-primary"><img class="prf" src="{% static 'matchcore/images/profile_white.svg' %}"></a>
 							<form action="/accept_request" method="post">
 								{% csrf_token %}
-								<button class="message-button btn btn-text" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/accept.svg' %}"></button>
+								<button class="message-button btn btn-primary" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/accept_white.svg' %}"></button>
 							</form>
 							<form action="/reject_request" method="post">
 								{% csrf_token %}
-								<button class="message-button btn btn-text" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/reject.svg' %}"></button>
+								<button class="message-button btn btn-primary" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/reject_white.svg' %}"></button>
 							</form>
 						</div>
 				{% endif %}
