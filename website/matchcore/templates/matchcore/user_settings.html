@@ -20,9 +20,10 @@
 			<div class="row">
 				<div class="col-5 text-center">
 					<div class="user-picture-container embed-responsive embed-responsive-1by1">
-						<img class="user-picture embed-responsive-item" src="{{user.person.img.url}}">
-						<img class="overlay" src="{% static 'matchcore/images/register/click_blabla.svg' %}">
+						<img id="userImg" class="user-picture embed-responsive-item" src="{{user.person.img.url}}">
+						<img id="overlayClick" class="overlay" src="{% static 'matchcore/images/register/click_blabla.svg' %}">
 					</div>
+					<div style="opacity: 0;">{{form.img}}</div>
 				</div>
 				<div class="col d-flex flex-column justify-content-center">
 					<div class="row my-3">
@@ -54,4 +55,9 @@
 	</div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'matchcore/js/usersettings.js' %}"></script>
 {% endblock %}

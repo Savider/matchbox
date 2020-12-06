@@ -16,7 +16,7 @@ class RegisterForm(forms.Form):
     password = forms.CharField(label='Password', widget=PasswordInput())
     email = forms.CharField(label='E-mail', max_length=50)
     nationality = forms.CharField(label='Nationality', max_length=30, required=False)
-    img = forms.ImageField(label='Profile Picture', required=False) #required?
+    img = forms.ImageField(label='Profile Picture') #required?
     phone = forms.CharField(label='Phone Number', max_length=10, required=False)
     discord = forms.CharField(label='Discord', max_length=20, required=False)
     # objective_tag = forms.CharField(max_length=20, widget=forms.HiddenInput())
@@ -35,7 +35,7 @@ class RegisterForm(forms.Form):
 
 class ProfileUpdateForm(forms.Form):
     email = forms.CharField(label='E-mail', max_length=50)
-    img = forms.ImageField(label='Profile Picture')
+    img = forms.ImageField(label='Profile Picture', required=False)
     nationality = forms.CharField(label='Nationality', max_length=20, required=False)
     phone = forms.CharField(label='Phone Number', max_length=10, required=False)
     discord = forms.CharField(label='Discord', max_length=20, required=False)

@@ -11566,6 +11566,7 @@ input[type=number] {
   top: 0px;
   width: 100%;
   border-radius: 50%;
+  cursor: pointer;
 }
 .user-settings .user-picture-container .overlay img {
   height: 33px;

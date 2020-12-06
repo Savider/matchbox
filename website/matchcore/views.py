@@ -57,6 +57,7 @@ def register(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             email = form.cleaned_data['email']
+            nationality = form.cleaned_data['nationality']
             img = form.cleaned_data['img']
             phone = form.cleaned_data['phone']
             discord = form.cleaned_data['discord']
@@ -64,7 +65,7 @@ def register(request):
             expertise_tag = form.cleaned_data['expertise_tag']
             try:
                 user = User.objects.create_user(username, email, password)
-                person = Person.objects.create(user=user, img=img, phone=phone, discord=discord)
+                person = Person.objects.create(user=user, img=img, nationality=nationality, phone=phone, discord=discord)
                 person.tags.add(UserTag.objects.filter(name=objective_tag).first())
                 person.tags.add(UserTag.objects.filter(name=expertise_tag).first())
                 person.save()
@@ -294,10 +295,14 @@ def profile_update_page(request):
 def profile_update(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
+            print(request)
             form = ProfileUpdateForm(request.POST, request.FILES)
             if form.is_valid():
+                imgchanged = False
+                if form.cleaned_data['img']:
+                    imgchanged = True
+                    img = form.cleaned_data['img']
                 email = form.cleaned_data['email']
-                img = form.cleaned_data['img']
                 nationality = form.cleaned_data['nationality']
                 phone = form.cleaned_data['phone']
                 discord = form.cleaned_data['discord']
@@ -305,7 +310,8 @@ def profile_update(request):
                 person = request.user.person
                 request.user.email = email
                 request.user.save()
-                person.img = img
+                if imgchanged:
+                    person.img = img
                 person.nationality = nationality
                 person.phone = phone
                 person.discord = discord

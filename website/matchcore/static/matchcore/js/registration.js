@@ -129,7 +129,6 @@ function uploadImg(){
 }
 
 function readURL(input) {
-	console.log("doing shit")
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function(e) {
