@@ -76,7 +76,7 @@
 			{% if is_owner %}
 				{% if current_project.state == 'O' %}
 					<div class="score-item">
-						<a href="{% url 'finish_project' current_project.id %}" class="join-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/accept_white.svg' %}"></a>
+						<a href="{% url 'finish_project' current_project.id %}" class="join-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/archive.svg' %}"></a>
 						<span class="join-button-text d-block">Archive</span>
 					</div>
 				{% endif %}

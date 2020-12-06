@@ -19,7 +19,7 @@
 					</a>
 				</div>
 				<h1>{{user.username}}</h1>
-				<div class="user-tags">
+				<div class="user-tags mt-3">
 					{% for tag in user.person.tags.all %}
 						<button type="button" class="tag-circle btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="{{tag.name}}">
 							{% if tag.name == 'Creator' %}
@@ -27,11 +27,11 @@
 							{% elif tag.name == 'Joiner' %}
 								<img src="{% static 'matchcore/images/register/team_white.svg' %}">
 							{% elif tag.name == 'Pro' %}
-								<img src="{% static 'matchcore/images/register/pro_white.svg' %}">
+								<img src="{% static 'matchcore/images/register/pro_white.svg' %}" style="height: 23px;">
 							{% elif tag.name == 'Adept' %}
-								<img src="{% static 'matchcore/images/register/adept_white.svg' %}">
+								<img src="{% static 'matchcore/images/register/adept_white.svg' %}" style="height: 28px;">
 							{% elif tag.name == 'Newcomer' %}
-								<img src="{% static 'matchcore/images/register/newcomer_white.svg' %}">
+								<img src="{% static 'matchcore/images/register/newcomer_white.svg' %}" style="height: 25px;">
 							{% endif %}
 						</button>
 					{% endfor %}
