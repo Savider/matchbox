@@ -198,7 +198,7 @@ def find_page(request):
         for t in tags:
             if request.GET[t] == 'on':
                 selected_projects = selected_projects | Project.objects.filter(state='O').filter(tags__name=t)
-        projects = selected_projects.distinct()
+        projects = selected_projects.exclude(participants__user__username=request.user.username).distinct()
 
     context = {
         'projects': projects,
