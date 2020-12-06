@@ -11028,6 +11028,13 @@ input[type=number] {
   padding: 50px 45px;
   cursor: pointer;
 }
+.project-list .project-item .project-picture {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
 .project-list .project-item .project-title {
   font-family: "Mulish", "Lato", sans-serif;
   font-size: 17px;
