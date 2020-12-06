@@ -28,8 +28,8 @@
 	height: 100vh;
 
 	.tag-circle {
-		height: 85px;
-		width: 85px;
+		height: 95px;
+		width: 95px;
 		border-radius: 50%;
 		background-color: theme-color("text");
 		display: flex;
@@ -38,8 +38,8 @@
 		margin-bottom: 10px;
 
 		img {
-			width: 48px;
-			height: 48px;
+			width: 58px;
+			height: 58px;
 		}
 	}
 	.tag-name {
@@ -55,7 +55,7 @@
 		.tag-list-item {
 			font-weight: 300;
 			font-size: 19px;
-			padding: 5px 20px;
+			padding: 5px 10px;
 			margin: 0px 10px;
 		}
 	}
@@ -75,26 +75,4 @@
 		font-weight: 300;
 		font-size: 19px;
 	}
-}
-
-
-/*--------- Modals ---------*/
-
-
-%filter-modal {
-	.modal-header {
-		padding: 16px 16px 5px 16px;
-	}
-	.modal-dialog {
-		max-width: 350px;
-	}
-	.filter-modal-label {
-		font-size: 20px;
-		font-weight: bold;
-		text-transform: uppercase;
-	}
-}
-
-#complexityModal, #themeModal, #technologyModal, #languageModal {
-	@extend %filter-modal;
 }

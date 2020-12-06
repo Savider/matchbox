@@ -101,7 +101,9 @@
 
 	.project-item {
 		padding: 50px 45px;
+		border-radius: 10px;
 		cursor: pointer;
+		transition: background-color 0.2s ease-in-out;
 		
 		.project-picture {
 			width: 240px;
@@ -158,8 +160,7 @@
 	}
 	.project-item:hover {
 		// border: 2px solid theme-color("primary");
-		background-color: lighten(theme-color("bg"), 1%);
-		border-radius: 10px;
+		background-color: lighten(theme-color("bg"), 1.1%);
 	}
 }
 

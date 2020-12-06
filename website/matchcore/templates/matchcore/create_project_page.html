@@ -77,10 +77,10 @@
 	      </div>
 		  <div class="modal-body text-center">
 		  	<!-- Form -->
-		  	<h5 class="filter-modal-label">Complexity</h5>
+		  	<h5 class="create-modal-label">Complexity</h5>
 		  	<div class="form-group mb-0">
 				{% for c in form.fields.complexity.queryset %}
-					<a class="complexity-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+					<a class="complexity-choice tag-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
 				{% endfor %}
 				<div style="display: none;">{{form.complexity}}</div>
 			</div>
@@ -93,17 +93,17 @@
 <div class="modal fade" id="themeModalCreate" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
-		  <div class="modal-header">
+		  <div class="modal-header text-center">
 		      <button type="button" class="close-button-sm btn btn-primary" data-dismiss="modal">
 					<img src="{% static 'matchcore/images/close.svg' %}">
 				</button>
 	      </div>
 		  <div class="modal-body text-center">
 		  	<!-- Form -->
-		  	<h5 class="filter-modal-label">Theme</h5>
+		  	<h5 class="create-modal-label">Theme</h5>
 		  	<div class="form-group mb-0">
 			    {% for c in form.fields.theme.queryset %}
-					<a class="theme-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+					<a class="theme-choice tag-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
 				{% endfor %}
 				<div style="display: none;">{{form.theme}}</div>
 			</div>
@@ -123,10 +123,10 @@
 	      </div>
 		  <div class="modal-body text-center">
 		  	<!-- Form -->
-		  	<h5 class="filter-modal-label">Technology</h5>
+		  	<h5 class="create-modal-label">Technology</h5>
 		  	<div class="form-group mb-0">
 			    {% for c in form.fields.technology.queryset %}
-					<a class="technology-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+					<a class="technology-choice tag-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
 				{% endfor %}
 				<div style="display: none;">{{form.technology}}</div>
 			</div>
@@ -146,10 +146,10 @@
 	      </div>
 		  <div class="modal-body text-center">
 		  	<!-- Form -->
-		  	<h5 class="filter-modal-label">Language</h5>
+		  	<h5 class="create-modal-label">Language</h5>
 		  	<div class="form-group mb-0">
 			    {% for c in form.fields.language.queryset %}
-					<a class="language-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+					<a class="language-choice tag-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
 				{% endfor %}
 				<div style="display: none;">{{form.language}}</div>
 			</div>

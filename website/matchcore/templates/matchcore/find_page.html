@@ -13,6 +13,11 @@
 		</div>
 	</div>
 	<div class="row project-list">
+		{% if projects|length == 0 %}
+			<div class="col text-center mt-4">
+				No projects to show with the current filters.
+			</div>
+		{% endif %}
 		{% for p in projects %}
 			<div class="col-6 project-item" onclick="location.href='{% url 'request_page' p.id %}'">
 				<div class="row">

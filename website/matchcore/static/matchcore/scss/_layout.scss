@@ -71,6 +71,23 @@ h3 {
     }
 }
 
+a {
+  color: theme-color("primary");
+  transition: color 0.15s ease-in-out;
+}
+a:hover {
+  color: darken(theme-color("primary"), 7.5%);
+  text-decoration: none;
+}
+a:active {
+  color: darken(theme-color("primary"), 10%);
+  text-decoration: none;
+}
+
+
+
+
+
 /*------------------ Checkboxes ------------------*/
 
 @supports(-webkit-appearance: none) or (-moz-appearance: none) {
