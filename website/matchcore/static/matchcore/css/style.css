@@ -11652,9 +11652,14 @@ a.tag-choice {
   font-size: 48px;
   font-weight: bold;
   transition: background-color 500ms ease-out;
+  text-align: center;
 }
 .register-button-big img {
   height: 110px;
+}
+.register-button-big .register-button-label {
+  display: block;
+  font-size: 28px;
 }
 
 .register-button-big.clicked, .register-button-small.clicked {
@@ -11742,6 +11747,22 @@ a.tag-choice {
   font-weight: 300;
   color: #fff;
   text-transform: uppercase;
+}
+
+.reg-img-container {
+  position: relative;
+  height: 110px;
+  width: 110px;
+}
+.reg-img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#projImgWhite, #teamImgWhite, #newcomerImgWhite, #adeptImgWhite, #proImgWhite {
+  display: none;
+  z-index: 90;
 }
 
 @media (min-width: 1200px) {

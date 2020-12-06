@@ -20,9 +20,14 @@
 	font-size: 48px;
 	font-weight: bold;
 	transition: background-color 500ms ease-out;
+	text-align: center;
 
 	img {
 		height: 110px;
+	}
+	.register-button-label {
+		display: block;
+		font-size: 28px;
 	}
 }
 .register-button-big.clicked, .register-button-small.clicked {
@@ -115,4 +120,21 @@
 	font-weight: 300;
 	color: theme-color("text");
 	text-transform: uppercase;
+}
+
+.reg-img-container {
+	position: relative;
+	height: 110px;
+	width: 110px;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+#projImgWhite, #teamImgWhite, #newcomerImgWhite, #adeptImgWhite, #proImgWhite {
+	display: none;
+	z-index: 90;
 }

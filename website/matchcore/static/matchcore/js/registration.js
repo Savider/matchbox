@@ -53,6 +53,32 @@ function selectOption(args, event) {
 		$('#id_expertise_tag').val('Pro');
 	else if (button === notSureBtn2)
 		$('#id_expertise_tag').val('');
+
+	if (button === findProjBtn) {
+		$(".imgwhite:not(#projImgWhite)").fadeOut(230, function(){
+			$('#projImgWhite').fadeIn(230);
+			});
+	}
+	else if (button === findTeamBtn) {
+		$(".imgwhite:not(#teamImgWhite)").fadeOut(230, function(){
+			$('#teamImgWhite').fadeIn(230);
+			});
+	}
+	else if (button === newcomerBtn) {
+		$(".imgwhite:not(#newcomerImgWhite)").fadeOut(230, function(){
+			$('#newcomerImgWhite').fadeIn(230);
+			});
+	}
+	else if (button === adeptBtn) {
+		$(".imgwhite:not(#adeptImgWhite)").fadeOut(230, function(){
+			$('#adeptImgWhite').fadeIn(230);
+			});
+	}
+	else if (button === proBtn) {
+		$(".imgwhite:not(#proImgWhite)").fadeOut(230, function(){
+			$('#proImgWhite').fadeIn(230);
+			});
+	}
 }
 
 function clickNext(event) {
