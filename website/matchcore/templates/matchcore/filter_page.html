@@ -11,54 +11,62 @@
 		</div>
 		<div class="row">
 			<div class="col mx-1">
-				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2" data-toggle="modal" data-target="#complexityModal"><img src="{% static 'matchcore/images/filtertags/complexity.svg' %}"></button>
+				<div class="text-center d-flex flex-column align-items-center mb-3">
+					<div class="tag-circle mb-2"><img src="{% static 'matchcore/images/projects/tag-complexity.svg' %}"></div>
 					<span class="tag-name d-block">Complexity</span>
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
 					{% for t in complexity_tags %}
-					<div class="tag-list-item">{{t.name}}</div>
-					<input type="checkbox" id={{t.name}} name={{t.name}}><br>
+					<div class="tag-list-item">
+						<input type="checkbox" id={{t.name}} name={{t.name}}>
+						<label>{{t.name}}</label>
+					</div>
 					{% endfor %}
 				</div>
 			</div>
 			<div class="col mx-1">
-				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2"  data-toggle="modal" data-target="#themeModal"><img src="{% static 'matchcore/images/filtertags/theme.svg' %}"></button>
+				<div class="text-center d-flex flex-column align-items-center mb-3">
+					<div class="tag-circle mb-2"><img src="{% static 'matchcore/images/projects/tag-theme.svg' %}"></div>
 					<span class="tag-name d-block">Theme</span>
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
 					{% for t in theme_tags %}
-					<div class="tag-list-item">{{t.name}}</div>
-					<input type="checkbox" id={{t.name}} name={{t.name}}><br>
+					<div class="tag-list-item">
+						<input type="checkbox" id={{t.name}} name={{t.name}}>
+						<label>{{t.name}}</label>
+					</div>
 					{% endfor %}
 				</div>
 			</div>
 			<div class="col mx-1">
-				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2" data-toggle="modal" data-target="#technologyModal"><img src="{% static 'matchcore/images/filtertags/technology.svg' %}"></button>
+				<div class="text-center d-flex flex-column align-items-center mb-3">
+					<div class="tag-circle mb-2"><img src="{% static 'matchcore/images/projects/tag-technology.svg' %}"></div>
 					<span class="tag-name d-block">Technology</span>
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
 					{% for t in technology_tags %}
-					<div class="tag-list-item">{{t.name}}</div>
-					<input type="checkbox" id={{t.name}} name={{t.name}}><br>
+					<div class="tag-list-item">
+						<input type="checkbox" id={{t.name}} name={{t.name}}>
+						<label>{{t.name}}</label>
+					</div>
 					{% endfor %}
 				</div>
 			</div>
 			<div class="col mx-1">
-				<div class="text-center mb-3">
-					<button class="tag-button btn btn-primary mb-2" data-toggle="modal" data-target="#languageModal"><img src="{% static 'matchcore/images/filtertags/language.svg' %}"></button>
+				<div class="text-center d-flex flex-column align-items-center mb-3">
+					<div class="tag-circle mb-2"><img src="{% static 'matchcore/images/projects/tag-language.svg' %}"></div>
 					<span class="tag-name d-block">Language</span>
 				</div>
 				<!-- List -->
 				<div class="tag-list scrollable">
 					{% for t in language_tags %}
-					<div class="tag-list-item">{{t.name}}</div>
-					<input type="checkbox" id={{t.name}} name={{t.name}}><br>
+					<div class="tag-list-item">
+						<input type="checkbox" id={{t.name}} name={{t.name}}>
+						<label>{{t.name}}</label>
+					</div>
 					{% endfor %}
 				</div>
 			</div>
@@ -72,101 +80,5 @@
 	</div>
 </div>
 
-<div class="modal fade" id="complexityModal" tabindex="-1" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-		  <div class="modal-header">
-		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
-					<img src="{% static 'matchcore/images/close.svg' %}">
-				</button>
-	      </div>
-		  <div class="modal-body text-center">
-		  	<!-- Form -->
-		  	<h5 class="filter-modal-label">Complexity</h5>
-		  	<div class="form-group mb-0">
-			    Here be a form
-			</div>
-			<!--  -->
-		  </div>
-		</div>
-	</div>
-</div>
-
-<div class="modal fade" id="themeModal" tabindex="-1" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-		  <div class="modal-header">
-		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
-					<img src="{% static 'matchcore/images/close.svg' %}">
-				</button>
-	      </div>
-		  <div class="modal-body text-center">
-		  	<!-- Form -->
-		  	<h5 class="filter-modal-label">Theme</h5>
-		  	<div class="form-group mb-0">
-			    Here be a form
-			</div>
-			<!--  -->
-		  </div>
-		</div>
-	</div>
-</div>
-
-<div class="modal fade" id="technologyModal" tabindex="-1" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-		  <div class="modal-header">
-		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
-					<img src="{% static 'matchcore/images/close.svg' %}">
-				</button>
-	      </div>
-		  <div class="modal-body text-center">
-		  	<!-- Form -->
-		  	<h5 class="filter-modal-label">Technology</h5>
-		  	<div class="form-group mb-0">
-			    Here be a form
-			</div>
-			<!--  -->
-		  </div>
-		</div>
-	</div>
-</div>
-
-<div class="modal fade" id="languageModal" tabindex="-1" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-		  <div class="modal-header">
-		      <button class="close-button-sm btn btn-primary" data-dismiss="modal">
-					<img src="{% static 'matchcore/images/close.svg' %}">
-				</button>
-	      </div>
-		  <div class="modal-body text-center">
-		  	<!-- Form -->
-		  	<h5 class="filter-modal-label">Language</h5>
-		  	<div class="form-group mb-0">
-			    Here be a form
-			</div>
-			<!--  -->
-		  </div>
-		</div>
-	</div>
-</div>
 </form>
 {% endblock %}
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="/find">
-    {% for t in tags %}
-    <label for={{t.name}}>{{t.name}}:</label><br>
-    <input type="checkbox" id={{t.name}} name={{t.name}}><br>
-    {% endfor %}
-    <input type="submit" value="Submit">
-</form>
-</body>
-</html> -->
