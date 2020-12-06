@@ -65,7 +65,8 @@ def register(request):
             expertise_tag = form.cleaned_data['expertise_tag']
             try:
                 user = User.objects.create_user(username, email, password)
-                person = Person.objects.create(user=user, img=img, nationality=nationality, phone=phone, discord=discord)
+                person = Person.objects.create(user=user, img=img, nationality=nationality, phone=phone,
+                                               discord=discord)
                 person.tags.add(UserTag.objects.filter(name=objective_tag).first())
                 person.tags.add(UserTag.objects.filter(name=expertise_tag).first())
                 person.save()
@@ -129,12 +130,12 @@ def user_page(request, username):
     score = 0
     score_amount = 0
     for p in project_participations:
-        if p.project.state == 'A' and p.owner==False:
+        if p.project.state == 'A' and p.owner is False:
             score += p.contribution
-            score_amount = score_amount+1
+            score_amount = score_amount + 1
 
     if score_amount > 0:
-        score = score/score_amount
+        score = score / score_amount
 
     context = {
         'user': user,
@@ -187,11 +188,10 @@ def filter_page(request):
 
 
 def find_page(request):
-
     # unfiltered page
     projects = Project.objects.filter(state='O')
     keys = list(request.GET.keys())
-    if len(keys)>0:
+    if len(keys) > 0:
         print("Here")
         tags = request.GET.keys()
         selected_projects = Project.objects.none()
@@ -199,7 +199,6 @@ def find_page(request):
             if request.GET[t] == 'on':
                 selected_projects = selected_projects | Project.objects.filter(state='O').filter(tags__name=t)
         projects = selected_projects.distinct()
-
 
     context = {
         'projects': projects,
@@ -210,11 +209,13 @@ def find_page(request):
 
 def request_page(request, project_id):
     project = Project.objects.get(id=project_id)
-    notif = Notification.objects.filter(type="JR").filter(project__id=project_id).filter(sender=request.user.person).first()
+    notif = Notification.objects.filter(type="JR").filter(project__id=project_id).filter(
+        sender=request.user.person).first()
     requested = False
     if notif is not None:
         requested = True
-    notif = Notification.objects.filter(type="RS").filter(project__id=project_id).filter(receiver=request.user.person).first()
+    notif = Notification.objects.filter(type="RS").filter(project__id=project_id).filter(
+        receiver=request.user.person).first()
     if notif is not None:
         requested = True
     context = {
@@ -225,7 +226,6 @@ def request_page(request, project_id):
 
 
 def join_request(request, project_id):
-
     notif = Notification.objects.filter(type="JR").filter(project__id=project_id).filter(sender=request.user.person)
     if notif.count() > 0:
         # Already requested, do nothing
@@ -266,13 +266,13 @@ def create_project(request):
                 technology = form.cleaned_data['technology']
                 language = form.cleaned_data['language']
 
-                tags = [ complexity , theme , technology , language]
+                tags = [complexity, theme, technology, language]
 
                 project = Project.objects.create(title=title, small_description=small_description,
-                                                     big_description=big_description, img=img, state='O')
+                                                 big_description=big_description, img=img, state='O')
                 project.tags.set(tags)
                 project_participation = ProjectParticipation.objects.create(project=project,
-                                                                                person=request.user.person, owner=True)
+                                                                            person=request.user.person, owner=True)
                 return redirect(project_page, project_id=project.id)
 
             else:
@@ -412,7 +412,7 @@ def finish_project(request, project_id):
                     username = form.cleaned_data['name']
                     contribution = form.cleaned_data['contribution']
                     project_participation = ProjectParticipation.objects.get(project__id=project_id,
-                                                                                person__user__username=username)
+                                                                             person__user__username=username)
                     project_participation.contribution = contribution
                     project_participation.save()
 
