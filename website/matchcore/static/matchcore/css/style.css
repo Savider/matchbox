@@ -6262,7 +6262,7 @@ a.close.disabled {
 .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^=top] .arrow::before {
   top: 0;
   border-width: 0.4rem 0.4rem 0;
-  border-top-color: #000;
+  border-top-color: #180c18;
 }
 
 .bs-tooltip-right, .bs-tooltip-auto[x-placement^=right] {
@@ -6276,7 +6276,7 @@ a.close.disabled {
 .bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^=right] .arrow::before {
   right: 0;
   border-width: 0.4rem 0.4rem 0.4rem 0;
-  border-right-color: #000;
+  border-right-color: #180c18;
 }
 
 .bs-tooltip-bottom, .bs-tooltip-auto[x-placement^=bottom] {
@@ -6288,7 +6288,7 @@ a.close.disabled {
 .bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^=bottom] .arrow::before {
   bottom: 0;
   border-width: 0 0.4rem 0.4rem;
-  border-bottom-color: #000;
+  border-bottom-color: #180c18;
 }
 
 .bs-tooltip-left, .bs-tooltip-auto[x-placement^=left] {
@@ -6302,7 +6302,7 @@ a.close.disabled {
 .bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^=left] .arrow::before {
   left: 0;
   border-width: 0.4rem 0 0.4rem 0.4rem;
-  border-left-color: #000;
+  border-left-color: #180c18;
 }
 
 .tooltip-inner {
@@ -6310,7 +6310,7 @@ a.close.disabled {
   padding: 0.25rem 0.5rem;
   color: #fff;
   text-align: center;
-  background-color: #000;
+  background-color: #180c18;
   border-radius: 0.25rem;
 }
 
@@ -10978,6 +10978,26 @@ input[type=number] {
 }
 .user-info .user-main-info .user-picture-container .edit-button img {
   height: 33px;
+}
+.user-info .user-tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.user-info .user-tags .tag-circle {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.user-info .user-tags .tag-circle img {
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .user-info .user-stats {
   display: flex;
