@@ -11598,4 +11598,49 @@ input[type=number] {
   font-size: 19px;
 }
 
+@media (min-width: 1200px) {
+  .container.evaluate-view {
+    max-width: 1000px;
+  }
+}
+.evaluate-view {
+  height: 100vh;
+}
+.evaluate-view .user-picture-container {
+  width: 55%;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.evaluate-view .user-picture-container .user-picture {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+.evaluate-view .participant-name {
+  color: #D33F49;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.evaluate-view .save-button {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+.evaluate-view .save-button img {
+  height: 45px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.evaluate-view .save-button-text {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 19px;
+}
+
 /*# sourceMappingURL=style.css.map */

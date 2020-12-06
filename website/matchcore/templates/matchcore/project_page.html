@@ -72,18 +72,25 @@
 				</div>
 			</div>
 		</div>
-		{%if is_owner %}<div style="opacity: 0;">{% endif %}
 		<div class="row project-score">
-			<div class="score-item">
-				<div class="score-circle">
-					{%if current_project.state == 'O'%} N/A
-					{% else %} {{my_score}}
-					{% endif %}
+			{% if is_owner %}
+				{% if current_project.state == 'O' %}
+					<div class="score-item">
+						<a href="{% url 'finish_project' current_project.id %}" class="join-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/accept_white.svg' %}"></a>
+						<span class="join-button-text d-block">Archive</span>
+					</div>
+				{% endif %}
+			{% else %}
+				<div class="score-item">
+					<div class="score-circle">
+						{%if current_project.state == 'O'%} N/A
+						{% else %} {{my_score}}
+						{% endif %}
+					</div>
+					<div class="score-desc">Your contribution</div>
 				</div>
-				<div class="score-desc">Your contribution</div>
-			</div>
+			{% endif %}
 		</div>
-		{%if is_owner %}</div>{% endif %}
 	</div>
 </div>
 
