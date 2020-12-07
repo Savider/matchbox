@@ -10,9 +10,9 @@
 				<h1>{{project.title}}</h1>
 			</div>
 			<div class="col text-right px-0">
-				<button class="close-button btn btn-primary" onClick="javascript:history.go(-1);">
+				<a href="{% url 'find_page' %}" class="close-button btn btn-primary">
 					<img src="{% static 'matchcore/images/close.svg' %}">
-				</button>
+				</a>
 			</div>
 		</div>
 		<div class="row">

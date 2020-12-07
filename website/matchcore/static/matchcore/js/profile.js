@@ -1,7 +1,14 @@
 $("#arrowDown").click(function() {
-    $('html,body').animate({
+    if($('#currentProjs').length == 0) {    // no current projs, scrolls to archived
+        $('html,body').animate({
+        scrollTop: $("#archivedProjs").offset().top},
+        'slow');
+    }
+    else {
+        $('html,body').animate({    // scrolls to current projs
         scrollTop: $("#currentProjs").offset().top},
         'slow');
+    }
 });
 
 $("#circCurrPrj").click(function() {
