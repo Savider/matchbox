@@ -4,6 +4,7 @@
 ##### Needs:
    - Python
    - Django
+   - Pillow
 
 ##### Installing Django:
    - Install pip (https://pip.pypa.io/en/stable/installing/) 
@@ -11,6 +12,8 @@
      `py get-pip.py`
    - Install Django using pip:
    `py -m pip install Django`
+   - Install Pillow using pip:
+   `py -m pip install Pillow`
     
 ##### Running the project:
    - Clone the project to a directory
