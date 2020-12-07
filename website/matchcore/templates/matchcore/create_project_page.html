@@ -80,7 +80,7 @@
 		  	<h5 class="create-modal-label">Complexity</h5>
 		  	<div class="form-group mb-0">
 				{% for c in form.fields.complexity.queryset %}
-					<a class="complexity-choice tag-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+					<a class="complexity-choice tag-choice d-block" data-optnval="{{ c.id }}" data-dismiss="modal">{{ c.name }}</a>
 				{% endfor %}
 				<div style="display: none;">{{form.complexity}}</div>
 			</div>
@@ -103,7 +103,7 @@
 		  	<h5 class="create-modal-label">Theme</h5>
 		  	<div class="form-group mb-0">
 			    {% for c in form.fields.theme.queryset %}
-					<a class="theme-choice tag-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+					<a class="theme-choice tag-choice d-block" data-optnval="{{ c.id }}" data-dismiss="modal">{{ c.name }}</a>
 				{% endfor %}
 				<div style="display: none;">{{form.theme}}</div>
 			</div>
@@ -126,7 +126,7 @@
 		  	<h5 class="create-modal-label">Technology</h5>
 		  	<div class="form-group mb-0">
 			    {% for c in form.fields.technology.queryset %}
-					<a class="technology-choice tag-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+					<a class="technology-choice tag-choice d-block" data-optnval="{{ c.id }}" data-dismiss="modal">{{ c.name }}</a>
 				{% endfor %}
 				<div style="display: none;">{{form.technology}}</div>
 			</div>
@@ -149,7 +149,7 @@
 		  	<h5 class="create-modal-label">Language</h5>
 		  	<div class="form-group mb-0">
 			    {% for c in form.fields.language.queryset %}
-					<a class="language-choice tag-choice d-block" data-optnval="{{ c.id }}">{{ c.name }}</a>
+					<a class="language-choice tag-choice d-block" data-optnval="{{ c.id }}" data-dismiss="modal">{{ c.name }}</a>
 				{% endfor %}
 				<div style="display: none;">{{form.language}}</div>
 			</div>
