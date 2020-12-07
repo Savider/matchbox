@@ -48,6 +48,16 @@
 		@extend %base-message;
 		background-color: theme-color("primary");
 		color: theme-color("text");
+
+		a {
+			color: theme-color("text");
+		}
+		a:hover {
+			color: darken(theme-color("text"), 7.5%);
+		}
+		a:active {
+			color: darken(theme-color("text"), 10%);
+		}
 	}
 	.read-message {
 		@extend %base-message;

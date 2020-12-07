@@ -11626,6 +11626,15 @@ a.tag-choice {
   background-color: #D33F49;
   color: #fff;
 }
+.message-list .unread-message a {
+  color: #fff;
+}
+.message-list .unread-message a:hover {
+  color: #ececec;
+}
+.message-list .unread-message a:active {
+  color: #e6e6e6;
+}
 .message-list .read-message {
   background-color: #fff;
   color: #D33F49;
