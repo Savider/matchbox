@@ -1,6 +1,6 @@
 .register-header {
 	color: theme-color("text");
-	font-size: 80px;
+	font-size: 70px;
 	font-weight: bold;
 	text-transform: none;
 }
@@ -10,14 +10,14 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 30px 30px 50px 30px;
-	background-color: theme-color("bg");
+	background-color: theme-color("text");
 	border: 3px theme-color("primary") solid;
 	border-radius: 25px;
 	margin: 15px 20px;
 	cursor: pointer;
 
 	color: theme-color("primary");
-	font-size: 48px;
+	font-size: 40px;
 	font-weight: bold;
 	transition: background-color 500ms ease-out;
 	text-align: center;
@@ -27,7 +27,8 @@
 	}
 	.register-button-label {
 		display: block;
-		font-size: 28px;
+		font-size: 24px;
+		line-height: 26px;
 	}
 }
 .register-button-big.clicked, .register-button-small.clicked {
@@ -41,7 +42,7 @@
 }
 
 .register-button-small {
-	background-color: theme-color("bg");
+	background-color: theme-color("text");
 	border: 3px theme-color("primary") solid;
 	border-radius: 25px;
 	margin: 15px 20px;
@@ -61,9 +62,14 @@
 	width: 1140px;
 }
 
+.progress-bar-container {
+	margin-top: 12px;	
+}
+
 #progressBar {
     height: 25px;
     border: 3px theme-color("primary") solid;
+    background-color: theme-color("text");
     border-radius: 25px;
 }
 
@@ -82,7 +88,8 @@
 	color: theme-color("primary");
 	font-size: 28px;
 	font-weight: bold;
-	padding: 0px 25px;
+	padding: 0px 30px;
+	background-color: theme-color("text")
 }
 .btn.btn-next:active, .btn.btn-next.active {
 	color: theme-color("text");
@@ -131,6 +138,18 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+	}
+}
+
+.reg-img-container-adept {
+	position: relative;
+	width: 130px;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
 	}
 }
 

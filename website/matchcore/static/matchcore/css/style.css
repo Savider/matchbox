@@ -11518,7 +11518,7 @@ input[type=number] {
 }
 .create-project-view .project-tags .tags-item .tags-desc {
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.3;
 }
@@ -11544,6 +11544,15 @@ input[type=number] {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 19px;
+}
+.create-project-view .create-input-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #D33F49;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /*--------- Modals ---------*/
@@ -11642,7 +11651,7 @@ a.tag-choice {
 
 .register-header {
   color: #fff;
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
   text-transform: none;
 }
@@ -11652,13 +11661,13 @@ a.tag-choice {
   flex-direction: column;
   align-items: center;
   padding: 30px 30px 50px 30px;
-  background-color: #221122;
+  background-color: #fff;
   border: 3px #D33F49 solid;
   border-radius: 25px;
   margin: 15px 20px;
   cursor: pointer;
   color: #D33F49;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: bold;
   transition: background-color 500ms ease-out;
   text-align: center;
@@ -11668,7 +11677,8 @@ a.tag-choice {
 }
 .register-button-big .register-button-label {
   display: block;
-  font-size: 28px;
+  font-size: 24px;
+  line-height: 26px;
 }
 
 .register-button-big.clicked, .register-button-small.clicked {
@@ -11676,7 +11686,7 @@ a.tag-choice {
   color: #fff;
 }
 .register-button-small {
-  background-color: #221122;
+  background-color: #fff;
   border: 3px #D33F49 solid;
   border-radius: 25px;
   margin: 15px 20px;
@@ -11695,9 +11705,14 @@ a.tag-choice {
   width: 1140px;
 }
 
+.progress-bar-container {
+  margin-top: 12px;
+}
+
 #progressBar {
   height: 25px;
   border: 3px #D33F49 solid;
+  background-color: #fff;
   border-radius: 25px;
 }
 
@@ -11716,7 +11731,8 @@ a.tag-choice {
   color: #D33F49;
   font-size: 28px;
   font-weight: bold;
-  padding: 0px 25px;
+  padding: 0px 30px;
+  background-color: #fff;
 }
 
 .btn.btn-next:active, .btn.btn-next.active {
@@ -11767,6 +11783,17 @@ a.tag-choice {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.reg-img-container-adept {
+  position: relative;
+  width: 130px;
+}
+.reg-img-container-adept img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 #projImgWhite, #teamImgWhite, #newcomerImgWhite, #adeptImgWhite, #proImgWhite {

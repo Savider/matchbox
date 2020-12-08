@@ -1,3 +1,5 @@
+// this entire file is awful
+
 const progressBarFull = document.getElementById('progressBarFull');
 
 var canAdvance = false;
@@ -30,7 +32,7 @@ function selectOption(args, event) {
 	const button = args[0];
 	const options = args[1];
 	for (const btn of options) {
-		btn.style.backgroundColor = '#221122';
+		btn.style.backgroundColor = '#FFFFFF';
 		btn.style.color = '#D33F49';
 	}
 	button.style.backgroundColor = '#D33F49';
@@ -38,46 +40,45 @@ function selectOption(args, event) {
 	nextBtn.classList.add("active");
 	canAdvance = true;
 
-	// spaghetti code below (even more than usual!)
-	if (button === findProjBtn)
-		$('#id_objective_tag').val('Joiner');
-	else if (button === findTeamBtn)
-		$('#id_objective_tag').val('Creator');
-	else if (button === notSureBtn1)
-		$('#id_objective_tag').val('');
-	else if (button === newcomerBtn)
-		$('#id_expertise_tag').val('Newcomer');
-	else if (button === adeptBtn)
-		$('#id_expertise_tag').val('Adept');
-	else if (button === proBtn)
-		$('#id_expertise_tag').val('Pro');
-	else if (button === notSureBtn2)
-		$('#id_expertise_tag').val('');
-
-	if (button === findProjBtn) {
-		$(".imgwhite:not(#projImgWhite)").fadeOut(230, function(){
-			$('#projImgWhite').fadeIn(230);
-			});
-	}
-	else if (button === findTeamBtn) {
-		$(".imgwhite:not(#teamImgWhite)").fadeOut(230, function(){
-			$('#teamImgWhite').fadeIn(230);
-			});
-	}
-	else if (button === newcomerBtn) {
-		$(".imgwhite:not(#newcomerImgWhite)").fadeOut(230, function(){
-			$('#newcomerImgWhite').fadeIn(230);
-			});
-	}
-	else if (button === adeptBtn) {
-		$(".imgwhite:not(#adeptImgWhite)").fadeOut(230, function(){
-			$('#adeptImgWhite').fadeIn(230);
-			});
-	}
-	else if (button === proBtn) {
-		$(".imgwhite:not(#proImgWhite)").fadeOut(230, function(){
-			$('#proImgWhite').fadeIn(230);
-			});
+	switch(button) {
+		case findProjBtn:
+			$('#id_objective_tag').val('Joiner');
+			$(".imgwhite:not(#projImgWhite)").fadeOut(230, function(){
+				$('#projImgWhite').fadeIn(230);
+				});
+			break;
+		case findTeamBtn:
+			$('#id_objective_tag').val('Creator');
+			$(".imgwhite:not(#teamImgWhite)").fadeOut(230, function(){
+				$('#teamImgWhite').fadeIn(230);
+				});
+			break;
+		case notSureBtn1:
+			$('#id_objective_tag').val('');
+			$(".imgwhite").fadeOut(230);
+			break;
+		case newcomerBtn:
+			$('#id_expertise_tag').val('Newcomer');
+			$(".imgwhite:not(#newcomerImgWhite)").fadeOut(230, function(){
+				$('#newcomerImgWhite').fadeIn(230);
+				});
+			break;
+		case adeptBtn:
+			$('#id_expertise_tag').val('Adept');
+			$(".imgwhite:not(#adeptImgWhite)").fadeOut(230, function(){
+				$('#adeptImgWhite').fadeIn(230);
+				});
+			break;
+		case proBtn:
+			$('#id_expertise_tag').val('Pro');
+			$(".imgwhite:not(#proImgWhite)").fadeOut(230, function(){
+				$('#proImgWhite').fadeIn(230);
+				});
+			break;
+		case notSureBtn2:
+			$('#id_expertise_tag').val('');
+			$(".imgwhite").fadeOut(230);
+			break;
 	}
 }
 
