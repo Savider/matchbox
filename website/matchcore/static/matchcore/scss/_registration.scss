@@ -34,11 +34,6 @@
 .register-button-big.clicked, .register-button-small.clicked {
 	background-color: theme-color("primary");
 	color: theme-color("text");
-	// transition: all 0.5s ease-out;
-
-	object {
-		// svg fill... (or change in script)
-	}
 }
 
 .register-button-small {
@@ -63,7 +58,7 @@
 }
 
 .progress-bar-container {
-	margin-top: 12px;	
+	margin-top: 10px;	
 }
 
 #progressBar {
@@ -74,8 +69,9 @@
 }
 
 #progressBarFull {
+	margin-top: -1px;
     margin-left: -2px;
-    height: 20px;
+    height: 21px;
     background-color: theme-color("primary");
     border-radius: 20px;
     width: 33%;

@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.forms import formset_factory
 from django.urls import reverse
 
@@ -350,7 +350,7 @@ def accept_request(request):
             new_notif.save()
             project_participation.save()
 
-            return redirect(notifications_page)
+            return JsonResponse({'msg': 'Notification accepted.'})
         else:
             return redirect(login_page)
     else:
@@ -370,7 +370,7 @@ def reject_request(request):
             notification.save()
             new_notif.save()
 
-            return redirect(notifications_page)
+            return JsonResponse({'msg': 'Notification rejected.'})
         else:
             return redirect(login_page)
     else:

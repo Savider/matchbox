@@ -36,14 +36,13 @@
 						</div>
 						<div class="col message-buttons">
 							<a href="{% url 'user_page' n.sender.user.username %}" class="message-button btn btn-text"><img class="prf" src="{% static 'matchcore/images/profile.svg' %}"></a>
-							<form action="/accept_request" method="post">
-								{% csrf_token %}
+							<form id="accept-{{n.id}}" class="notif-accept" method="post" data-num="{{n.id}}">
 								<button class="message-button btn btn-text" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/accept.svg' %}"></button>
 							</form>
-							<form action="/reject_request" method="post">
-								{% csrf_token %}
+							<form id="reject-{{n.id}}" class="notif-reject" method="post" data-num="{{n.id}}">
 								<button class="message-button btn btn-text" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/reject.svg' %}"></button>
 							</form>
+							<span id="msg-{{n.id}}" style="display: none;"></span>
 						</div>
 					{% endif %}
 				</div>
@@ -80,14 +79,13 @@
 							</div>
 							<div class="col message-buttons">
 								<a href="{% url 'user_page' n.sender.user.username %}" class="message-button btn btn-primary"><img class="prf" src="{% static 'matchcore/images/profile_white.svg' %}"></a>
-								<form action="/accept_request" method="post">
-									{% csrf_token %}
-									<button class="message-button btn btn-primary" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/accept_white.svg' %}"></button>
+								<form id="accept-{{n.id}}" class="notif-accept" method="post" data-num="{{n.id}}">
+									<button class="message-button btn btn-primary"><img class="accrj" src="{% static 'matchcore/images/accept_white.svg' %}"></button>
 								</form>
-								<form action="/reject_request" method="post">
-									{% csrf_token %}
-									<button class="message-button btn btn-primary" name="notification_id" value="{{n.id}}"><img class="accrj" src="{% static 'matchcore/images/reject_white.svg' %}"></button>
+								<form id="reject-{{n.id}}" class="notif-reject" method="post" data-num="{{n.id}}">
+									<button class="message-button btn btn-primary"><img class="accrj" src="{% static 'matchcore/images/reject_white.svg' %}"></button>
 								</form>
+								<span id="msg-{{n.id}}" style="display: none;"></span>
 							</div>
 					{% endif %}
 				{% endif %}
@@ -97,4 +95,9 @@
 	{% endif %}
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'matchcore/js/notifications.js' %}"></script>
 {% endblock %}
