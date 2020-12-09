@@ -75,7 +75,8 @@
 		<div class="row text-center justify-content-center mt-5 mb-4">
 			<div class="col">
 				{% if requested %}
-				<span class="join-button-text d-block">Request Sent</span>
+				<span class="join-button-text d-block mt-2">Request Sent</span>
+				<button class="join-button btn btn-primary" style="opacity: 0; cursor: default;">
 				{% else %}
 				<form action="submit" method="post">
 					{% csrf_token %}
