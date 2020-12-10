@@ -80,7 +80,12 @@
 						<span class="join-button-text d-block">Archive</span>
 					</div>
 				{% endif %}
-			{% else %}
+			{% elif request_sent %}
+				<div class="text-center">
+					<span class="join-button-text d-block mt-2">Request Sent</span>
+					<button class="join-button btn btn-primary" style="opacity: 0; cursor: default;">
+				</div>
+			{% elif is_participant %}
 				<div class="score-item">
 					<div class="score-circle">
 						{%if current_project.state == 'O'%} N/A
