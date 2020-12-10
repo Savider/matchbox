@@ -112,12 +112,13 @@
 
 .register-input-label {
 	font-size: 18px;
-	font-weight: 300;
+	font-weight: bold;
 	color: theme-color("primary");
 	text-transform: uppercase;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	letter-spacing: 0.5px;
 }
 .register-input {
 	height: 50px;

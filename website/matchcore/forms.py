@@ -40,10 +40,10 @@ class ProfileUpdateForm(forms.Form):
     phone = forms.CharField(label='Phone Number', max_length=10, required=False)
     discord = forms.CharField(label='Discord', max_length=20, required=False)
     #widgets
-    email.widget = forms.TextInput(attrs={'class': 'form-control'})
-    nationality.widget = forms.TextInput(attrs={'class': 'form-control'})
-    phone.widget = forms.NumberInput(attrs={'class': 'form-control'})
-    discord.widget = forms.TextInput(attrs={'class': 'form-control'})
+    email.widget = forms.TextInput(attrs={'class': 'form-control register-input'})
+    nationality.widget = forms.TextInput(attrs={'class': 'form-control register-input'})
+    phone.widget = forms.NumberInput(attrs={'class': 'form-control register-input'})
+    discord.widget = forms.TextInput(attrs={'class': 'form-control register-input'})
 
 
 class CreateProjectForm(forms.Form):

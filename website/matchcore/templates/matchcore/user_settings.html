@@ -18,12 +18,12 @@
 		<form enctype="multipart/form-data" action="/profile_update/submit" method="post">
 			{% csrf_token %}
 			<div class="row">
-				<div class="col-5 text-center">
+				<div class="col-5 text-center d-flex align-items-center justify-content-center">
 					<div class="user-picture-container embed-responsive embed-responsive-1by1">
 						<img id="userImg" class="user-picture embed-responsive-item" src="{{user.person.img.url}}">
 						<img id="overlayClick" class="overlay" src="{% static 'matchcore/images/register/click_blabla.svg' %}">
 					</div>
-					<div style="opacity: 0;">{{form.img}}</div>
+					<div style="display: none;">{{form.img}}</div>
 				</div>
 				<div class="col d-flex flex-column justify-content-center">
 					<div class="row my-3">

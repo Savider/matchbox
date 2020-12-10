@@ -10773,7 +10773,7 @@ h2 {
 
 h3 {
   color: #D33F49;
-  font-size: 29px;
+  font-size: 34px;
   font-weight: bold;
   line-height: 32px;
   letter-spacing: 0.2px;
@@ -11762,12 +11762,13 @@ a.tag-choice {
 
 .register-input-label {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: bold;
   color: #D33F49;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  letter-spacing: 0.5px;
 }
 
 .register-input {
