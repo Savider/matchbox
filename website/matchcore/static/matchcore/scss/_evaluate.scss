@@ -1,6 +1,6 @@
 @media (min-width: 1200px) {
     .container.evaluate-view {
-        max-width: 1000px;
+        max-width: 1200px;
     }
 }
 
@@ -8,7 +8,7 @@
 	height: 100vh;
 
 	.user-picture-container {
-		width: 55%;
+		width: 70%;
 		margin-bottom: 5px;
 		position:relative;
 	    display:inline-block;
@@ -20,13 +20,67 @@
 			border-radius: 50%;
 		}
 	}
-	.participant-name {
-		color: theme-color("primary");
-		letter-spacing: 0.5px;
-		font-weight: bold;
-		text-transform: uppercase;
+	.score-col {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		padding-right: 60px;
+
+		.participant-name {
+			color: theme-color("primary");
+			font-size: 26px;
+			letter-spacing: 0.5px;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+		.score-buttons {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+			.score-button {
+				height: 70px;
+				width: 70px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: theme-color("primary");
+				background-color: theme-color("text");
+				font-size: 24px;
+				font-weight: bold;
+				cursor: pointer;
+				transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			}
+		}
+		.check-profile {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-end;
+
+			.profile-label {
+				display: block;
+				margin-right: 20px;
+				text-transform: uppercase;
+				font-weight: 300;
+				font-size: 20px;
+			}
+			.profile-button {
+				position: relative;
+				height: 35px;
+				width: 35px;
+				border-radius: 50%;
+
+				img {
+			    	height: 30px;
+			    	@include center-in-btn;
+			    }
+			}
+		}
 	}
-	.save-button {
+	.submit-button {
 		position: relative;
 		width: 90px;
 		height: 90px;
@@ -37,9 +91,15 @@
 	    	@include center-in-btn;
 	    }
 	}
-	.save-button-text {
+	.submit-button-text {
 		text-transform: uppercase;
 		font-weight: 300;
 		font-size: 19px;
+	}
+	.evaluate-main {
+		// max-height: 65%;
+		padding-left: 90px;
+		padding-right: 120px;
+		// border: 2px red solid;
 	}
 }

@@ -3,6 +3,83 @@
 
 {% block main %}
 
+<div class="container evaluate-view">
+	<div class="h-100 d-flex flex-column justify-content-center">
+		<div class="row mb-3">
+			<div class="col px-0">
+				<h1 class="mb-5">Rate participation</h1>
+			</div>
+			<div class="col text-right px-0">
+				<button class="close-button btn btn-primary" onClick="javascript:history.go(-1);">
+					<img src="{% static 'matchcore/images/close.svg' %}">
+				</button>
+			</div>
+		</div>
+		<form method="POST" enctype="multipart/form-data" action="submit">
+			{{ formset.management_form }}
+			{% csrf_token %}
+
+			<div class="evaluate-main mt-4 mb-4">
+				{% for form in formset %}
+					<div class="row mb-4">
+						<div class="col-4">
+							<div class="user-picture-container embed-responsive embed-responsive-1by1">
+								{% for p in participations %}
+									{% if p.person.user.username == form.name.value %}
+										<img class="user-picture embed-responsive-item" src="{{p.person.img.url}}">
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<div class="col score-col">
+							<div>
+								{{form.name}}
+								{{form.contribution}}
+								{% for p in participations %}
+									{% if p.person.user.username == form.name.value %}
+										<h5 class="participant-name">{{p.person.user.username}}'s score</h5>
+										<div class="score-buttons">
+											<div class="score-button" data-id="{{forloop.counter0}}">1</div>
+											<div class="score-button" data-id="{{forloop.counter0}}">2</div>
+											<div class="score-button" data-id="{{forloop.counter0}}">3</div>
+											<div class="score-button" data-id="{{forloop.counter0}}">4</div>
+											<div class="score-button" data-id="{{forloop.counter0}}">5</div>
+										</div>
+									{% endif %}
+								{% endfor %}
+							</div>
+							<div class="check-profile">
+								{% for p in participations %}
+									{% if p.person.user.username == form.name.value %}
+										<a href="{% url 'user_page' p.person.user.username %}" class="profile-label">Check profile</a>
+										<a href="{% url 'user_page' p.person.user.username %}" class="profile-button btn btn-primary"><img src="{% static 'matchcore/images/profile_white.svg' %}"></a>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="row text-center justify-content-center mt-5">
+				<div class="col">
+					<button type="submit" class="submit-button btn btn-primary mb-2"><img src="{% static 'matchcore/images/accept_white.svg' %}"></button>
+					<span class="submit-button-text d-block">Submit</span>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'matchcore/js/evaluate.js' %}"></script>
+{% endblock %}
+
+
+<!-- 
 <div class="container evaluate-view pt-5">
 	<div class="row pt-5 mb-5">
 		<div class="col-1">
@@ -48,4 +125,4 @@
 	</form>
 </div>
 
-{% endblock %}
+ -->

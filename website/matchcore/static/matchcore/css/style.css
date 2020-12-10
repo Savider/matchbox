@@ -11577,6 +11577,7 @@ a.tag-choice {
   cursor: pointer;
   margin-top: 4px;
   margin-bottom: 4px;
+  font-size: 18px;
 }
 
 .message-list .read-message, .message-list .unread-message {
@@ -11855,14 +11856,14 @@ a.tag-choice {
 
 @media (min-width: 1200px) {
   .container.evaluate-view {
-    max-width: 1000px;
+    max-width: 1200px;
   }
 }
 .evaluate-view {
   height: 100vh;
 }
 .evaluate-view .user-picture-container {
-  width: 55%;
+  width: 70%;
   margin-bottom: 5px;
   position: relative;
   display: inline-block;
@@ -11873,29 +11874,86 @@ a.tag-choice {
   object-position: center;
   border-radius: 50%;
 }
-.evaluate-view .participant-name {
+.evaluate-view .score-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 60px;
+}
+.evaluate-view .score-col .participant-name {
   color: #D33F49;
+  font-size: 26px;
   letter-spacing: 0.5px;
   font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
-.evaluate-view .save-button {
+.evaluate-view .score-col .score-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.evaluate-view .score-col .score-buttons .score-button {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D33F49;
+  background-color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.evaluate-view .score-col .check-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.evaluate-view .score-col .check-profile .profile-label {
+  display: block;
+  margin-right: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 20px;
+}
+.evaluate-view .score-col .check-profile .profile-button {
+  position: relative;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+.evaluate-view .score-col .check-profile .profile-button img {
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.evaluate-view .submit-button {
   position: relative;
   width: 90px;
   height: 90px;
   border-radius: 50%;
 }
-.evaluate-view .save-button img {
+.evaluate-view .submit-button img {
   height: 45px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.evaluate-view .save-button-text {
+.evaluate-view .submit-button-text {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 19px;
+}
+.evaluate-view .evaluate-main {
+  padding-left: 90px;
+  padding-right: 120px;
 }
 
 /*# sourceMappingURL=style.css.map */

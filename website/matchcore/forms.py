@@ -63,6 +63,6 @@ class CreateProjectForm(forms.Form):
 
 class EvaluateForm(forms.Form):
     name = forms.CharField(label='Username', max_length=20, widget=forms.HiddenInput())
-    contribution = forms.IntegerField(label='Evaluation')
+    contribution = forms.IntegerField(label='Evaluation', widget=forms.HiddenInput())
     #widgets
-    contribution.widget = forms.NumberInput(attrs={'class': 'form-control'})
+    # contribution.widget = forms.NumberInput(attrs={'class': 'form-control'})
