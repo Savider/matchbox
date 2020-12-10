@@ -11650,6 +11650,10 @@ a.tag-choice {
   color: #D33F49;
 }
 
+#regPage12, #regPage3 {
+  height: calc(100vh - 110px);
+}
+
 .register-header {
   color: #fff;
   font-size: 70px;

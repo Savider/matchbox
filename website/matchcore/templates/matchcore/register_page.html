@@ -4,52 +4,50 @@
 {% block main %}
 <form enctype="multipart/form-data" action="/register/submit" method="post">
     {% csrf_token %}
-	<div class="vh-100">
-		<div class="container pt-5" id="regPage12">
-			<div class="h-100 d-flex flex-column justify-content-center">
-				<div class="row">
-					<div class="col text-center mb-4 mt-3">
-						<h1 id="regHeader" class="register-header">What is your goal?</h1>
+	<div class="container pt-5" id="regPage12">
+		<div class="h-100 d-flex flex-column justify-content-center">
+			<div class="row">
+				<div class="col text-center mb-4 mt-3">
+					<h1 id="regHeader" class="register-header">What is your goal?</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div id="findProjBtn" class="col register-button-big">
+					<span class="mb-4">Finding a project</span>
+					<div class="reg-img-container">
+						<img src="{% static 'matchcore/images/register/project.svg' %}">
+						<img id="projImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/project_white.svg' %}">
 					</div>
 				</div>
-				<div class="row">
-					<div id="findProjBtn" class="col register-button-big">
-						<span class="mb-4">Finding a project</span>
-						<div class="reg-img-container">
-							<img src="{% static 'matchcore/images/register/project.svg' %}">
-							<img id="projImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/project_white.svg' %}">
-						</div>
+				<div id="findTeamBtn" class="col register-button-big">
+					<span class="mb-4">Finding a team</span>
+					<div class="reg-img-container" style="width:132px;">
+						<img src="{% static 'matchcore/images/register/team.svg' %}">
+						<img id="teamImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/team_white.svg' %}">
 					</div>
-					<div id="findTeamBtn" class="col register-button-big">
-						<span class="mb-4">Finding a team</span>
-						<div class="reg-img-container" style="width:132px;">
-							<img src="{% static 'matchcore/images/register/team.svg' %}">
-							<img id="teamImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/team_white.svg' %}">
-						</div>
+				</div>
+				<div id="newcomerBtn" style="display:none;" class="col register-button-big">
+					<span class="">Newcomer</span>
+					<span class="register-button-label mb-4">New to the scene and eager to learn</span>
+					<div class="reg-img-container">
+						<img src="{% static 'matchcore/images/register/newcomer.svg' %}">
+						<img id="newcomerImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/newcomer_white.svg' %}">
 					</div>
-					<div id="newcomerBtn" style="display:none;" class="col register-button-big">
-						<span class="">Newcomer</span>
-						<span class="register-button-label mb-4">New to the scene and eager to learn</span>
-						<div class="reg-img-container">
-							<img src="{% static 'matchcore/images/register/newcomer.svg' %}">
-							<img id="newcomerImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/newcomer_white.svg' %}">
-						</div>
+				</div>
+				<div id="adeptBtn" style="display:none;" class="col register-button-big">
+					<span class="">Adept</span>
+					<span class="register-button-label mb-4">Looking for more experience</span>
+					<div class="reg-img-container-adept" style="width:140px;">
+						<img src="{% static 'matchcore/images/register/adept.svg' %}">
+						<img id="adeptImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/adept_white.svg' %}">
 					</div>
-					<div id="adeptBtn" style="display:none;" class="col register-button-big">
-						<span class="">Adept</span>
-						<span class="register-button-label mb-4">Looking for more experience</span>
-						<div class="reg-img-container-adept" style="width:140px;">
-							<img src="{% static 'matchcore/images/register/adept.svg' %}">
-							<img id="adeptImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/adept_white.svg' %}">
-						</div>
-					</div>
-					<div id="proBtn" style="display:none;" class="col register-button-big">
-						<span class="">Pro</span>
-						<span class="register-button-label mb-4">Knowledgeable, and looking to lead</span>
-						<div class="reg-img-container" style="width:57px;">
-							<img src="{% static 'matchcore/images/register/pro.svg' %}">
-							<img id="proImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/pro_white.svg' %}">
-						</div>
+				</div>
+				<div id="proBtn" style="display:none;" class="col register-button-big">
+					<span class="">Pro</span>
+					<span class="register-button-label mb-4">Knowledgeable, and looking to lead</span>
+					<div class="reg-img-container" style="width:57px;">
+						<img src="{% static 'matchcore/images/register/pro.svg' %}">
+						<img id="proImgWhite" class="imgwhite" src="{% static 'matchcore/images/register/pro_white.svg' %}">
 					</div>
 				</div>
 			</div>
@@ -62,7 +60,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="container pt-5" id="regPage3" style="display: none;">
+	</div>
+	<div class="container pt-5" id="regPage3" style="display: none;">
+		<div class="h-100 d-flex flex-column justify-content-center">
 			<div class="row pt-5">
 				<div class="col-5 text-center">
 					<div class="register-picture-container embed-responsive embed-responsive-1by1">
@@ -101,21 +101,21 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="container">
-			<div class="progress-bar-bottom">
-				<div class="row mb-5">
-					<div class="col">
-						<div class="progress-bar-container">
-							<div id="progressBar">
-								<div id="progressBarFull"></div>     
-							</div>
+	<div class="container">
+		<div class="progress-bar-bottom">
+			<div class="row mb-5">
+				<div class="col">
+					<div class="progress-bar-container">
+						<div id="progressBar">
+							<div id="progressBarFull"></div>     
 						</div>
 					</div>
-					<div class="col-2">
-						<button type="button" id="nextBtn" class="btn btn-next">Next</button>
-						<input type="submit" value="Next" id="nextBtnSubmit" class="btn btn-next" style="display: none;"></input>
-					</div>
+				</div>
+				<div class="col-2">
+					<button type="button" id="nextBtn" class="btn btn-next">Next</button>
+					<input type="submit" value="Next" id="nextBtnSubmit" class="btn btn-next" style="display: none;"></input>
 				</div>
 			</div>
 		</div>
