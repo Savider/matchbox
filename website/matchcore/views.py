@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.forms import formset_factory
 from django.urls import reverse
 
@@ -165,6 +165,25 @@ def notifications_page(request):
         }
         return render(request, 'matchcore/notifications_page.html', context)
 
+    else:
+        return redirect(login_page)
+
+
+def get_notifications_num(request):
+    if request.user.is_authenticated:
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            # ajax request
+            user = request.user
+            notifications_received = user.person.received_notifications.all()
+            unread_notifications = notifications_received.filter(read=False)
+            num_notifs = unread_notifications.count()
+
+            context = {
+                'num_notifs': num_notifs
+            }
+            return JsonResponse(context)
+        else:
+            return redirect(user_page, username=request.user.username)
     else:
         return redirect(login_page)
 

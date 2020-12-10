@@ -17,6 +17,7 @@ urlpatterns = [
     path('user/<str:username>/', views.user_page, name="user_page"),
 
     path('notifications/', views.notifications_page, name="notifications"),
+    path('notifs_num', views.get_notifications_num),
 
     path('filter', views.filter_page, name="filter_page"),
 
