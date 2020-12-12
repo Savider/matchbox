@@ -11046,12 +11046,12 @@ input[type=radio] + label {
   line-height: 10px;
 }
 
-.form-control {
+.create-input, .register-input {
   border: none !important;
   color: #808080;
 }
 
-.form-control:focus {
+.create-input:focus, .register-input:focus {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
@@ -11068,45 +11068,97 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.landing-page {
+.login-page {
   height: 100vh;
+  max-width: 980px;
 }
-.landing-page img {
-  width: 80%;
+.login-page .login-left {
+  background-color: #D33F49;
+  border-radius: 20px 0px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 90px 60px 90px;
 }
-.landing-page .btn {
-  width: 200px;
-  border-radius: 40px;
+.login-page .login-left .logo {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 30px;
+}
+.login-page .login-left .welcome-text {
+  color: #fff;
+  font-size: 54px;
   font-weight: bold;
-  font-size: 20px;
-  margin: 0px 20px;
+  line-height: 60px;
+  margin-bottom: 15px;
 }
-
-#loginModal .modal-dialog {
-  max-width: 350px;
+.login-page .login-left .slogan {
+  color: #fff;
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 34px;
 }
-#loginModal .modal-body:after {
-  content: "";
-  background: #D33F49;
-  position: absolute;
-  bottom: 0;
-  left: 5%;
-  width: 90%;
-  height: 1px;
+.login-page .login-right {
+  background-color: #fff;
+  border-radius: 0px 20px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 90px 90px 60px 90px;
 }
-#loginModal .login-label {
-  font-weight: 300;
-  font-size: 20px;
-  display: block;
-}
-#loginModal .form-control {
-  margin-bottom: 10px;
-  margin-top: 5px;
-}
-#loginModal .btn {
-  border-radius: 40px;
+.login-page .login-right .login-text {
+  color: #D33F49;
+  font-size: 54px;
   font-weight: bold;
-  font-size: 18px;
+  line-height: 60px;
+  margin-bottom: 35px;
+}
+.login-page .login-input {
+  border: none;
+  border-bottom: 2px solid #BDBDBD;
+  border-radius: 0px;
+  font-size: 20px;
+  color: #808080;
+}
+.login-page .login-input::placeholder {
+  color: #BDBDBD;
+  font-size: 20px;
+}
+.login-page .login-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  border-bottom: 2px solid #BDBDBD;
+  color: #808080;
+}
+.login-page .input-group {
+  margin-bottom: 30px;
+}
+.login-page .input-group .input-group-prepend {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.login-page .input-group .input-group-prepend .input-group-text {
+  border: none;
+  border-bottom: 2px solid #BDBDBD;
+  border-radius: 0px;
+  background-color: #fff;
+  padding: 0px;
+}
+.login-page .input-group .input-group-prepend .input-group-text img {
+  width: 30px;
+  height: 30px;
+}
+.login-page .login-btn {
+  border-radius: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  width: 45%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 35px;
 }
 
 .user-info {
@@ -11720,6 +11772,7 @@ a.tag-choice {
   position: absolute;
   bottom: 0px;
   width: 1140px;
+  margin-bottom: 70px;
 }
 
 .progress-bar-container {

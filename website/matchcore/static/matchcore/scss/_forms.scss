@@ -1,8 +1,8 @@
-.form-control {
+.create-input, .register-input {
 	border: none !important;
     color: theme-color("inputs");
 }
-.form-control:focus {
+.create-input:focus, .register-input:focus {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;

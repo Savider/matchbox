@@ -38,7 +38,7 @@ def login_page(request):
     context = {
         'form': form,
     }
-    return render(request, 'matchcore/landing_page.html', context)
+    return render(request, 'matchcore/login_page.html', context)
 
 
 def register_page(request):

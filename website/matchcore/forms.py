@@ -7,8 +7,8 @@ class LoginForm(forms.Form):
     username = forms.CharField(label='Username', max_length=20)
     password = forms.CharField(label='Password')
     #widgets
-    username.widget = forms.TextInput(attrs={'class': 'form-control'})
-    password.widget = forms.PasswordInput(attrs={'class': 'form-control'})
+    username.widget = forms.TextInput(attrs={'class': 'form-control login-input', 'placeholder': 'Username'})
+    password.widget = forms.PasswordInput(attrs={'class': 'form-control login-input', 'placeholder': 'Password'})
 
 
 class RegisterForm(forms.Form):
@@ -57,8 +57,8 @@ class CreateProjectForm(forms.Form):
     language = forms.ModelChoiceField(queryset=models.ProjectTag.objects.filter(archetype='L'))
     #widgets
     title.widget = forms.TextInput(attrs={'class': 'form-control'})
-    small_description.widget = forms.TextInput(attrs={'class': 'form-control'})
-    big_description.widget = forms.Textarea(attrs={'class': 'form-control'})
+    small_description.widget = forms.TextInput(attrs={'class': 'form-control create-input'})
+    big_description.widget = forms.Textarea(attrs={'class': 'form-control create-input'})
 
 
 class EvaluateForm(forms.Form):

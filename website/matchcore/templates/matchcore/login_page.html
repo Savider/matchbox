@@ -1,15 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="/login/submit" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+{% extends "matchcore/layout_empty.html" %}
+{% load static %}
 
-</body>
-</html>
+{% block main %}
+
+
+<div class="container login-page">
+	<div class="h-100 d-flex flex-column justify-content-center">
+		<div class="row">
+			<div class="col login-left">
+				<img class="logo" src="{% static 'matchcore/images/logo_white.svg' %}">
+				<h2 class="welcome-text">Welcome to Matchbox</h2>
+				<h4 class="slogan">A platform for project making that matches people and ideas.</h4>
+			</div>
+			<div class="col login-right">
+				<h2 class="login-text">Login</h2>
+				<form action="/login/submit" method="post">
+					{% csrf_token %}
+					<div class="input-group">
+						<div class="input-group-prepend">
+					    	<span class="input-group-text">
+					    		<img src="{% static 'matchcore/images/login_un.svg' %}">
+					    	</span>
+							{{ form.username }}
+						</div>
+						<div class="input-group-prepend">
+					    	<span class="input-group-text">
+					    		<img src="{% static 'matchcore/images/login_pw.svg' %}">
+					    	</span>
+							{{ form.password }}
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary login-btn">Log in</button>
+				</form>
+				<a href="{% url 'register' %}" class="btn btn-primary login-btn">Sign in</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
